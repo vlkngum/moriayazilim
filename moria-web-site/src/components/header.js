@@ -41,17 +41,17 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/hakkimizda" className="text-white hover:text-gray-400">
+              <Link href="/about" className="text-white hover:text-gray-400">
                 Hakkımızda
               </Link>
             </li>
             <li>
-              <Link href="/portfolyo" className="text-white hover:text-gray-400">
+              <Link href="/portfolio" className="text-white hover:text-gray-400">
                 Portfolyomuz
               </Link>
             </li>
             <li>
-              <Link href="/iletisim" className="text-white hover:text-gray-400">
+              <Link href="/contact" className="text-white hover:text-gray-400">
                 İletişim
               </Link>
             </li>
