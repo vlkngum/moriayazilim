@@ -1,4 +1,4 @@
-import Header from '../header_short'
+import Header from '../components/header_short'
 
 export default function Contact() {
     return (
