@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/ScrollVelocity.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/ScrollVelocity.js", "src/components/pages/about.js"],
   "exclude": ["node_modules"]
 }

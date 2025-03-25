@@ -1,8 +1,8 @@
 export default function Header_Short() {
     return (
-    <div className="relative w-full h-screen bg-black">
-        <img src="/main.png" alt="Hero" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+    <div style={{ backgroundImage: `url('/main.png')` }}
+      className="relative w-full h-screen object-cover bg-cover bg-center flex items-center">
+        <div className="flex flex-col justify-center items-center text-center text-white px-4">
           <h2 className="text-2xl md:text-4xl font-semibold px-[20%]">
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
           </h2>

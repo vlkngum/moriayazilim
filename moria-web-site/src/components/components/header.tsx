@@ -29,10 +29,10 @@ const Header = () => {
         </div>
       </div>
  
-      <div className="flex justify-between items-center mt-6"> 
+      <div className="flex justify-between items-center mt-6 px-20"> 
         <div className="text-4xl font-bold ">
           <a href="/">
-            <img src="/logo_white.png" alt="Logo" className="h-10 hover:scale-110 transition-all duration-300" />
+            <img src="/logo_white.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
           </a>
         </div>
  
@@ -63,7 +63,7 @@ const Header = () => {
         </nav>
         <div className="text-4xl font-bold ">
           <a href="/">
-            <img src="/logo_white.png" alt="Logo" className="h-10 opacity-0" />
+            <img src="/logo_white.png" alt="Logo" className="h-14 opacity-0" />
           </a>
         </div>
       </div>

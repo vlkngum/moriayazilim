@@ -15,7 +15,7 @@ export default function Footer() {
         <nav className="flex space-x-6 text-gray-800 font-medium">
           <a href="/">Anasayfa</a>
           <a href="/about">Hakkımızda</a>
-          <a href="/portforio">Portfolyomuz</a>
+          <a href="/portflio">Portfolyomuz</a>
           <a href="/contact">İletişim</a>
         </nav>
 
