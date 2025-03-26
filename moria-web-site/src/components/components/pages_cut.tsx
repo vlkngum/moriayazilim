@@ -15,24 +15,24 @@ export default function Portfolio() {
 
   const pageContent = [
     {
-      title: "PORTFOLYUMUZ",
+      title: "PROJELERİMİZ",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fugit corporis dolor esse iure natus velit laborum expedita, deleniti beatae asperiores maiores, doloremque praesentium cum maxime sequi inventore architecto, nam necessitatibus? Nam blanditiis, ea ullam non sequi consectetur perspiciatis!",
       buttonText: "Yönlendir",
-      image: "/main.png",
-      href:'/porfolio'
+      image: "/our_work.avif",
+      href:'/about'
     },
     {
-      title: "PROJELERIMIZ",
+      title: "PORTFOLYOMUZ",
       description: "İkinci sayfamıza hoş geldiniz. Burada tamamladığımız en önemli projeleri görebilirsiniz. Her bir proje, benzersiz zorluklar ve yaratıcı çözümler sunmaktadır. Müşterilerimizle yakın işbirliği içinde çalışarak, her projede üstün kalite ve yenilikçi yaklaşımlar sunmayı hedefliyoruz.",
       buttonText: "Projeleri Gör",
-      image: "/projects.png",
-      href:'/about'
+      image: "/potfolio.jpg",
+      href:'/porfolio'
     },
     {
       title: "İLETIŞİM",
       description: "Bizimle iletişime geçmek için bu formunu kullanabilirsiniz. En kısa sürede size geri dönüş yapacağız. Sorularınızı, önerilerinizi veya işbirliği tekliflerinizi bekleriz. Daha fazla bilgi için sosyal medya hesaplarımızı da takip edebilirsiniz.",
       buttonText: "Gönder",
-      image: "/contact.png",
+      image: "/contact2.jpg",
       href:'/contact'
     }
   ];
@@ -90,7 +90,7 @@ export default function Portfolio() {
             </div>
 
             <div className="flex justify-between lg:p-10 md:px-10 sm:px-10 lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
-              <img src={page.image} className="w-full rounded-3xl shadow-xl object-cover shadow-black" alt={page.title} />
+              <img src={page.image} className="w-full h-full rounded-3xl shadow-xl object-cover shadow-black" alt={page.title} />
             </div>
           </div>
         ))}

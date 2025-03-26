@@ -7,10 +7,10 @@ export default function Header_Short() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="relative w-full h-screen flex items-center">
+     
       <div
         style={{ backgroundImage: `url('${imageSrc}')` }}
-        className="relative max-w-full h-[90vh] overflow-hidden flex flex-row bg-cover bg-center transition-all duration-700 ease-in-out"
+        className="relative max-w-full h-screen overflow-hidden flex flex-row bg-cover bg-center transition-all duration-700 ease-in-out"
       >
         <div
           className={`h-full w-1/2 flex justify-center flex-col px-14 py-10 gap-4 transition-all duration-700 ease-in-out ${
@@ -63,6 +63,6 @@ export default function Header_Short() {
           </div>
         </div>
       </div>
-    </div>
+ 
   );
 }

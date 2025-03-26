@@ -32,7 +32,7 @@ export default function HideButtons() {
 
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: window.scrollY - window.innerHeight,
       behavior: "smooth"
     });
   };
