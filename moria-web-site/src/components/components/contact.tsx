@@ -49,10 +49,10 @@ export default function Contact() {
 
   return (
     <div className="relative w-full h-[80vh] flex items-center justify-center p-4 ">
-      <div className="w-full h-full flex flex-row items-center justify-center rounded-xl border border-gray-300">
+      <div className="w-full h-full flex flex-row items-center justify-center rounded-xl border border-gray-400">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col justify-center h-full w-[40%] px-8 py-10 gap-6 rounded-bl-xl"
+          className="flex flex-col justify-center h-full w-[40%] px-20 py-10 gap-6 rounded-bl-xl"
         >
           <input
             type="text"
@@ -92,7 +92,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="bg-fuchsia-800 text-white py-3 rounded-md hover:bg-fuchsia-900 transition duration-200 shadow-xl shadow-gray-700 mt-8 text-2xl"
+            className="bg-fuchsia-800 text-white w-min py-3 px-10 self-center rounded-md hover:bg-fuchsia-900 transition duration-200 shadow-xl shadow-gray-700 mt-8 text-2xl cursor-pointer"
           >
             Gönder
           </button>
