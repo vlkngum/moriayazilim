@@ -17,9 +17,9 @@ export default function Header_Short() {
   
     return (
       <div style={{ backgroundImage: `url('/header.png')` }}
-      className="relative w-full h-[25lvh] object-cover bg-cover bg-center flex items-center">
+      className="relative w-full h-[20lvh] object-cover bg-cover bg-center flex items-center">
         <div className="flex text w-full h-full items-end text-white px-4">
-        <div className="p-10">
+        <div className="p-5">
           <div className="flex">
             <a href="/" className="text-xs text-gray-300">Anasayfa </a>
             <h1 className="text-xs text-white font-semibold"> / {title}</h1>

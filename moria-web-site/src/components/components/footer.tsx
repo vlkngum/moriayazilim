@@ -2,7 +2,7 @@ import { FaPhone, FaEnvelope, FaYoutube, FaTwitter, FaFacebook, FaInstagram } fr
 
 export default function Footer() {
   return (
-    <footer className="bg-white w-full">
+    <footer className="bg-white w-full h-[10lvh] items-center justify-center">
       <div className="container mx-auto py-6 px-4 flex justify-between items-center border-t border-black">
 
         <div className="flex items-center">

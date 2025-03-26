@@ -1,10 +1,11 @@
-import Header from "@/components/components/header_short"
+import Header from "@/components/components/header_short";
 
 export default function About() {
-    return (
-      <main className="bg-white"> 
-        <Header/>
-      </main>
-    );
-  }
-  
+  return (
+    <main className="bg-white min-h-screen">
+      <Header />
+
+      
+    </main>
+  );
+}
