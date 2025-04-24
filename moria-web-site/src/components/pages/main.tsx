@@ -5,6 +5,9 @@ import Portfolio_Cut from '@/components/components/pages_cut';
 import Our_Services from '@/components/components/our_services';
 
 import ScrollVelocity from  "@/utils/ScrollVelocity/ScrollVelocity";
+ 
+import PriceModal from "@/components/components/priceModal";
+
 
 export default function Main() {
     return (
@@ -22,6 +25,8 @@ export default function Main() {
             className="custom-scroll-text"
           />
         </div>
+          
+
         
 
        

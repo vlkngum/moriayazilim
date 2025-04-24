@@ -31,7 +31,6 @@ export default function Header_Short() {
           Teklif Al
         </button>
         
-        {showModal && <Modal onClose={closeModal} />}
       </div>
     </div>
   );

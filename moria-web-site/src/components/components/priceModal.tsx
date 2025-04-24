@@ -37,7 +37,7 @@ export default function PricingTable() {
     ];
   
     return (
-      <div className="fixed top-0 w-full z-50 min-h-screen flex items-center justify-center gap-6" onClick={closeModalz} >
+      <div className="fixed top-0 w-full z-50 min-h-screen flex items-center justify-center gap-6" onClick={closeModal} >
         {plans.map((plan, index) => (
           <div key={index} className="relative bg-white shadow-lg rounded-xl p-6 w-96 gap-6 text-black items-start text-start">
             {plan.recommended && (
