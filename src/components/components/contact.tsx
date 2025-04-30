@@ -1,6 +1,5 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
-import { time } from "console";
+import emailjs from "emailjs-com"; 
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,7 +28,7 @@ export default function Contact() {
         { 
           title: formData.subject,
           name: formData.name,
-          time: currentTime,
+          time: submissionTime,
           message: formData.message,
           email: formData.email,
         },

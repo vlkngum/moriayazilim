@@ -6,7 +6,7 @@ import Our_Services from '@/components/components/our_services';
 
 import ScrollVelocity from  "@/utils/ScrollVelocity/ScrollVelocity";
  
-import PriceModal from "@/components/components/priceModal";
+//import PriceModal from "@/components/components/priceModal";
 
 
 export default function Main() {

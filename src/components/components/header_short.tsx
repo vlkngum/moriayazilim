@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Header_Short() {
@@ -21,7 +22,7 @@ export default function Header_Short() {
         <div className="flex text w-full h-full items-end text-white px-4">
         <div className="p-5">
           <div className="flex">
-            <a href="/" className="text-xs text-gray-300">Anasayfa </a>
+            <Link href="/" className="text-xs text-gray-300">Anasayfa </Link>
             <h1 className="text-xs text-white font-semibold"> / {title}</h1>
           </div>
           <h1 className="text-xl text-white font-semibold">{title}</h1>

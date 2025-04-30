@@ -2,7 +2,7 @@
 
 import "@/styles/globals.css";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "@/components/components/header";
 import Footer from "@/components/components/footer";
 import Main from "@/components/pages/portfolio";

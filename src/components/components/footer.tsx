@@ -1,22 +1,23 @@
-import { FaPhone, FaEnvelope, FaYoutube, FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
-
+import { FaYoutube, FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
+import Link from "next/link";
+import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-white w-full h-[10lvh] items-center justify-center pt-5">
       <div className="container mx-auto py-6 px-4 flex justify-between items-center border-t border-black">
 
         <div className="flex items-center">
-          <a href="/">
-            <img src="/logo.png" alt="Logo" className="h-10 hover:scale-110 transition-all duration-300" />
-          </a>
+          <Link href="/">
+            <Image src="/logo.png" alt="Logo" className="h-10 hover:scale-110 transition-all duration-300" />
+          </Link>
           
         </div>
 
         <nav className="flex space-x-6 text-gray-800 font-medium">
-          <a href="/">Anasayfa</a>
-          <a href="/about">Hakkımızda</a>
-          <a href="/portflio">Portfolyomuz</a>
-          <a href="/contact">İletişim</a>
+          <Link href="/">Anasayfa</Link>
+          <Link href="/about">Hakkımızda</Link>
+          <Link href="/portflio">Portfolyomuz</Link>
+          <Link href="/contact">İletişim</Link>
         </nav>
 
         <div className="flex space-x-5">

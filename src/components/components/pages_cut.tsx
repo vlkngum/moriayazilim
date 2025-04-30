@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
@@ -37,7 +38,6 @@ export default function Portfolio() {
     }
   ];
 
-  const currentContent = pageContent[currentPage - 1];
 
   return (
     <div className="relative max-w-full h-[70lvh] overflow-hidden">
@@ -90,7 +90,7 @@ export default function Portfolio() {
             </div>
 
             <div className="flex justify-between lg:p-10 md:px-10 sm:px-10 lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
-              <img src={page.image} className="w-full h-full rounded-3xl shadow-xl object-cover shadow-black" alt={page.title} />
+              <Image src={page.image} className="w-full h-full rounded-3xl shadow-xl object-cover shadow-black" alt={page.title} />
             </div>
           </div>
         ))}

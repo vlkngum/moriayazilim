@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";  
+import Image from "next/image";
 
 interface HeaderWhiteProps {
   setShowWhiteHeader: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,9 +33,9 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
     <header className="justify-center items-center py-6 bg-white border-b border-black"> 
       <div className="flex justify-between items-center px-20"> 
         <div className="text-4xl font-bold ">
-          <a href="/">
-            <img src="/logo.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
-          </a>
+          <Link href="/">
+            <Image src="/logo.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
+          </Link>
         </div>
  
         <nav>
@@ -63,9 +64,9 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
           </ul>
         </nav>
         <div className="text-4xl font-bold ">
-          <a href="/">
-            <img src="/logo_white.png" alt="Logo" className="h-14 opacity-0" />
-          </a>
+          <Link href="/">
+            <Image src="/logo_white.png" alt="Logo" className="h-14 opacity-0" />
+          </Link>
         </div>
       </div>
     </header>

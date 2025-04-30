@@ -3,11 +3,6 @@ import { useEffect, useState } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa6";
 
 
-interface HideScrollbarProps {
-  setShowScrollTopButton: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowScrollDownButton: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export default function HideButtons() {
   const [showScrollTopButton, setShowScrollTopButton] = useState(false);
   const [showScrollDownButton, setShowScrollDownButton] = useState(true); 
