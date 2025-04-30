@@ -34,11 +34,7 @@ export default function Contact() {
         },
         "WQppF9Gcp5D3Lu2aF" // EmailJS public key
       )
-      .then(
-        (response) => {
-          alert(`Mesajınız başarıyla gönderildi! Gönderim Zamanı: ${currentTime}`);
-          setFormData({ name: "", email: "", subject: "", message: "" });
-        },
+      .then( 
         (error) => {
           console.error("Mesaj gönderme hatası:", error);
           alert("Mesaj gönderilirken bir hata oluştu.");
