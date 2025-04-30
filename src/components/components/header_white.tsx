@@ -11,23 +11,25 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
   const pathname = usePathname();
   const [hovered, setHovered] = useState<string | null>(null);
 
-  let lastScrollY = 0;
+  const lastScrollY = React.useRef(0);
+
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       
-      if (scrollY < lastScrollY && scrollY > 0) {
+      if (scrollY < lastScrollY.current && scrollY > 0) {
         setShowWhiteHeader(true);
       } else {
         setShowWhiteHeader(false);
       }
-      lastScrollY = scrollY;
+      lastScrollY.current = scrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [setShowWhiteHeader]);
+
 
   return (
     <header className="justify-center items-center py-6 bg-white border-b border-black"> 
