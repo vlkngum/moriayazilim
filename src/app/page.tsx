@@ -19,7 +19,7 @@ export default function IndexPage() {
     
     <div className="flex flex-col min-h-screen bg-white text-gray-900 justify-between max-w-full overflow-hidden">
   
-      <Our_Services/>
+    
 
       <Portfolio_Cut/>
 
@@ -30,7 +30,7 @@ export default function IndexPage() {
           className="custom-scroll-text"
         />
       </div>
-    
+      <Our_Services/>
       
     </div>
  

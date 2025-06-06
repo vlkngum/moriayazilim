@@ -34,8 +34,8 @@ export default function ClientLayout({
 
 
       <div>
-        {children}
-        <Footer />
+        {children} 
+        <Footer/> 
         <ScrollHide />
       </div>
     </>
