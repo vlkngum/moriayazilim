@@ -2,7 +2,6 @@
 
 import { useState } from "react"; 
 import ScrollHide from "./tools/scrollHide"; 
-import { Suspense } from 'react';
 import { usePathname } from "next/navigation";
 
 import Header_Short from "./components/components/header_short";
@@ -15,8 +14,7 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showHeader] = useState(true);
   const pathname = usePathname();
 
   return (

@@ -1,5 +1,6 @@
 import { FaYoutube, FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
 import Link from "next/link"; 
+import Image from "next/image";
 export default function Footer() {
   return (
     <>
@@ -9,7 +10,7 @@ export default function Footer() {
 
         <div className="flex  md:self-center self-start md:pb-0 pb-6">
           <Link href="/">
-            <img src="/logo.png" alt="Logo" className="h-10 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo.png" alt="Logo" className="h-10 hover:scale-110 transition-all duration-300" />
           </Link>
           
         </div>

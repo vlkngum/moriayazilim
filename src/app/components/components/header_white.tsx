@@ -36,7 +36,7 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
       <div className="flex justify-between items-center px-20"> 
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <img src="/logo.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
           </Link>
         </div>
  

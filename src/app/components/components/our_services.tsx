@@ -6,21 +6,6 @@ export default function Header_Short() {
   const [imageSrc, setImageSrc] = useState('/code.png');
   const [isHovered, setIsHovered] = useState(false);
 
-  const services = [
-    {
-      id: "01",
-      title: "Web Tasarım",
-      description: "Profesyonel web tasarım hizmetlerimizle dijital dünyada öne çıkın.",
-      image: "/logodesign.png",
-    },
-    {
-      id: "02",
-      title: "Logo Tasarım",
-      description: "Markanızı yansıtan özgün logolar tasarlıyoruz.",
-      image: "/code.png",
-    },
-  ]
-
   return (
       <div className="w-full h-screen items-center justify-center flex ">
         <div

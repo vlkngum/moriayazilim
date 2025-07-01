@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -15,6 +15,27 @@ export default function Header() {
   };
   const pathname = usePathname();
   const [hovered, setHovered] = useState<string | null>(null);
+
+  // Scroll lock for mobile menu
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.touchAction = '';
+    };
+  }, [isMenuOpen]);
 
   return (
     < >
@@ -42,7 +63,7 @@ export default function Header() {
       <div className="flex justify-between items-center mt-6 px-20"> 
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <img src="/logo_white.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo_white.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
           </Link>
         </div>
  
@@ -73,7 +94,7 @@ export default function Header() {
         </nav>
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <img src="/logo_white.png" alt="Logo" className="h-14 opacity-0" />
+            <Image src="/logo_white.png" alt="Logo" className="h-14 opacity-0" />
           </Link>
         </div>
       </div>
@@ -81,7 +102,7 @@ export default function Header() {
 
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg shadow-black/20 md:hidden ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-25">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
@@ -90,7 +111,7 @@ export default function Header() {
                 alt="Logo" 
                 width={120} 
                 height={40} 
-                className="h-8 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
           </div>
@@ -129,36 +150,42 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
-            <Link 
-              href="/" 
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-fuchsia-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Ana Sayfa
+        <div className="fixed inset-0 z-50 bg-white flex flex-col h-full w-full md:hidden">
+          <div className="flex items-start justify-between p-4 relative">
+            <Link href="/">
+              <Image src="/logo.png" alt="Logo" width={80} height={40} className="h-16 w-auto" />
             </Link>
-            <Link 
-              href="/about" 
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-fuchsia-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
+            <button
+              onClick={toggleMenu}
+              className="fixed top-8 right-5 bg-transparent text-black flex items-center justify-center w-8 h-8 text-4xl z-[100]"
+              aria-label="Menüyü Kapat"
             >
-              Hakkımızda
-            </Link>
-            <Link 
-              href="/portfolio" 
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-fuchsia-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Portfolyo
-            </Link>
-            <Link 
-              href="/contact" 
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-fuchsia-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              İletişim
-            </Link>
+              <span className="flex items-center justify-center w-full h-full text-4xl"><FaTimes /></span>
+            </button>
+          </div>
+          <hr className="my-2 border-gray-300" />
+          <nav className="flex-1 flex flex-col justify-start px-6 gap-6 mt-4">
+            <Link href="/" className="text-2xl font-normal" onClick={() => setIsMenuOpen(false)}>Anasayfa</Link>
+            <Link href="/about" className="text-2xl font-normal" onClick={() => setIsMenuOpen(false)}>Hakkımızda</Link>
+            <Link href="/portfolio" className="text-2xl font-normal" onClick={() => setIsMenuOpen(false)}>Portfolyomuz</Link>
+            <Link href="/contact" className="text-2xl font-normal" onClick={() => setIsMenuOpen(false)}>İletişim</Link>
+          </nav>
+          <div className="mt-auto w-full">
+            <hr className="mb-2 border-gray-300" />
+            <div className="flex flex-col gap-2 px-6 pb-4">
+              <div className="flex items-center gap-2 text-base">
+                <FaPhone />
+                <span>0551 966 78 36</span>
+                <FaYoutube className="ml-4" />
+                <FaTwitter className="ml-2" />
+                <FaFacebook className="ml-2" />
+                <FaInstagram className="ml-2" />
+              </div>
+              <div className="flex items-center gap-2 text-base">
+                <FaEnvelope />
+                <span>iletisim@moriayazilim.com</span>
+              </div>
+            </div>
           </div>
         </div>
       )}
