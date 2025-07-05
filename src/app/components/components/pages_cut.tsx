@@ -56,8 +56,8 @@ export default function Portfolio() {
                 <h1 className="lg:text-8xl md:text-6xl  sm:text-6xl self-center font-semibold mb-5">{page.title}</h1>
                 <h1 className="lg:text-xl md:text-lg sm:text-lg self-center">{page.description}</h1>
                 <a href={page.href}>
-                    <button  className="mt-4 px-6 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition text-xl shadow-md shadow-gray-700">
-                        {page.buttonText}
+                    <button  className="mt-4 px-6 py-2 bg-[#6E71FC] text-white rounded-md hover:bg-[#6366ed] transition text-xl shadow-md shadow-gray-700">
+                        {page.buttonText} <span className='ml-2'>→</span>
                     </button>
                 </a>
               </div>
@@ -90,7 +90,7 @@ export default function Portfolio() {
             </div>
 
             <div className="flex justify-between lg:p-10 md:px-10 sm:px-10 lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
-              <Image src={page.image}  className="w-full h-full rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />
+              <Image src={page.image} width={800} height={600} className="w-full h-full rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />
             </div>
           </div>
         ))}

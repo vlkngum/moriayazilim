@@ -36,7 +36,7 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
       <div className="flex justify-between items-center px-20"> 
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <Image src="/logo.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo.png" alt="Logo" width={64} height={64} className="h-14 hover:scale-110 transition-all duration-300" />
           </Link>
         </div>
  
@@ -67,7 +67,7 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
         </nav>
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <Image src="/logo_white.png" alt="Logo" width={200} height={56} className="h-14 opacity-0" />
+            <Image src="/logo_white.png" alt="Logo" width={64} height={64} className="h-14 opacity-0" />
           </Link>
         </div>
       </div>

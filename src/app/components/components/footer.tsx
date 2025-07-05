@@ -10,7 +10,7 @@ export default function Footer() {
 
         <div className="flex  md:self-center self-start md:pb-0 pb-6">
           <Link href="/">
-            <Image src="/logo.png" alt="Logo" className="h-10 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo.png" alt="Logo" width={64} height={64} className="h-10 hover:scale-110 transition-all duration-300" />
           </Link>
           
         </div>

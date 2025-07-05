@@ -63,7 +63,7 @@ export default function Header() {
       <div className="flex justify-between items-center mt-6 px-20"> 
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <Image src="/logo_white.png" alt="Logo" className="h-14 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo_white.png" alt="Logo" width={64} height={64} className="h-14 hover:scale-110 transition-all duration-300" />
           </Link>
         </div>
  
@@ -94,7 +94,7 @@ export default function Header() {
         </nav>
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <Image src="/logo_white.png" alt="Logo" className="h-14 opacity-0" />
+            <Image src="/logo_white.png" alt="Logo" width={64} height={64} className="h-14 opacity-0" />
           </Link>
         </div>
       </div>
@@ -109,8 +109,8 @@ export default function Header() {
               <Image 
                 src="/logo.png" 
                 alt="Logo" 
-                width={120} 
-                height={40} 
+                width={200} 
+                height={56} 
                 className="h-16 w-auto"
               />
             </Link>
