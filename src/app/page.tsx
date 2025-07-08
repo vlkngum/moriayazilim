@@ -2,7 +2,7 @@
 
 import "@/app/globals.css";
 
- 
+import DreamSection from  "@/app/components/components/DreamSection";
 
 import Portfolio_Cut from '@/app/components/components/pages_cut';
 
@@ -18,7 +18,7 @@ export default function IndexPage() {
     
     <div className="flex flex-col min-h-screen bg-white text-gray-900 justify-between max-w-full overflow-hidden">
   
-    
+    <DreamSection/>
 
       <Portfolio_Cut/>
 
