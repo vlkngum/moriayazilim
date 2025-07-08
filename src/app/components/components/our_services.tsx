@@ -38,7 +38,7 @@ export default function Header_Short() {
               isHovered ? 'translate-y-[-20px]' : ''
             }`}
             onMouseEnter={() => {
-              setImageSrc('/logodesign.png');
+              setImageSrc('/logodesign.jpg');
               setIsHovered(true);
             }}
             onMouseLeave={() => {

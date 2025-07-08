@@ -19,7 +19,7 @@ export default function Portfolio() {
       title: "Projelerimiz",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fugit corporis dolor esse iure natus velit laborum expedita, deleniti beatae asperiores maiores, doloremque praesentium cum maxime sequi inventore architecto, nam necessitatibus? Nam blanditiis, ea ullam non sequi consectetur perspiciatis!",
       buttonText: "Yönlendir",
-      image: "/our_work.png",
+      image: "/our_work.jpg",
       href:'/about'
     },
     {

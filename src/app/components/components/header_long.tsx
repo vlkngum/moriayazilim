@@ -2,7 +2,7 @@ export default function Header_Short() {
    
   return (
     <div 
-      style={{ backgroundImage: `url('/main.png')` }}
+      style={{ backgroundImage: `url('/main.jpg')` }}
       className="relative w-full h-screen object-cover bg-cover bg-center flex items-center"
     >
       <div className="flex flex-col justify-center items-center text-center text-white px-2 w-full h-full md:bg-transparent md:w-auto md:h-auto">
