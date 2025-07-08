@@ -40,57 +40,85 @@ export default function Portfolio() {
 
 
   return (
-    <div className="relative max-w-full h-[70lvh] overflow-hidden mt-10 mb-10">
+    <div className="relative max-w-full h-full overflow-hidden mt-10 mb-0 sm:mb-0">
       <div 
-        className="transition-transform duration-500 ease-in-out flex" 
-        style={{ width: `${totalPages * 100}%`, transform: `translateX(-${(currentPage - 1) * (100 / totalPages)}%)` }}
+        className={`transition-transform duration-500 ease-in-out w-full ${typeof window !== 'undefined' && window.innerWidth < 640 ? 'flex flex-col' : 'flex'}`}
+        style={typeof window !== 'undefined' && window.innerWidth < 640
+          ? { width: '100%', transform: 'none' }
+          : { width: `${totalPages * 100}%`, transform: `translateX(-${(currentPage - 1) * (100 / totalPages)}%)` }}
       >
         {pageContent.map((page, index) => (
-          <div 
-            key={index} 
-            className="flex lg:flex-row md:flex-col-reverse sm:flex-col-reverse p-2"
-            style={{ width: `${100 / totalPages}%` }}
+          <div
+            key={index}
+            className={`w-full flex flex-col sm:flex-col-reverse md:flex-col-reverse lg:flex-row p-2 ${typeof window !== 'undefined' && window.innerWidth < 640 && currentPage - 1 !== index ? 'hidden' : ''}`}
+            style={typeof window !== 'undefined' && window.innerWidth < 640
+              ? { width: '100%' }
+              : { width: `${100 / totalPages}%` }}
           >
-            <div className="flex flex-col justify-between lg:p-10 md:p-10 sm:p-10 lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
-              <div className="flex-col justify-between">
-                <h1 className="lg:text-8xl md:text-6xl  sm:text-6xl self-center font-semibold mb-5">{page.title}</h1>
-                <h1 className="lg:text-xl md:text-lg sm:text-lg self-center">{page.description}</h1>
-                <a href={page.href}>
-                    <button  className="mt-4 px-6 py-2 bg-[#6E71FC] text-white rounded-md hover:bg-[#6366ed] transition text-xl shadow-md shadow-gray-700">
-                        {page.buttonText} <span className='ml-2'>→</span>
-                    </button>
-                </a>
-              </div>
-
-              <div className="flex justify-between items-center w-full">
-                <div className="flex items-center">
-                  <h1 className="text-gray-400">{index + 1}/</h1>
-                  <h1>{totalPages}</h1>
-                </div>
-
-                <div className="flex-1 h-[2px] bg-gray-300 mx-4"></div>
-
-                <div className="flex space-x-2">
-                  <button 
-                    className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-6 rounded-full aspect-square cursor-pointer`}
-                    onClick={() => handlePageChange('prev')}
-                    disabled={currentPage === 1}
-                  >
-                    <FaArrowLeft size={30}/>
-                  </button>
-                  <button 
-                    className={`${currentPage < totalPages ? 'bg-gray-900' : 'bg-gray-500'} text-white p-6 rounded-full aspect-square cursor-pointer`}
-                    onClick={() => handlePageChange('next')}
-                    disabled={currentPage === totalPages}
-                  >
-                    <FaArrowRight size={30}/>
-                  </button>
-                </div>
-              </div>
+            {/* Mobilde görsel üstte, masaüstünde sağda */}
+            <div className="block sm:hidden w-full mb-4">
+              <Image src={page.image} width={800} height={220} className="w-full h-[220px] rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />
             </div>
+            <div className="flex flex-col justify-between lg:p-10 md:p-10 sm:p-10 w-full lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2 items-center">
+                <div className="flex-col justify-between w-full">
+                 <h1 className="lg:text-8xl md:text-6xl sm:text-4xl text-2xl self-center font-semibold mb-5 text-center sm:self-start sm:text-left">{page.title}</h1>
+                 <h1 className="lg:text-xl md:text-lg sm:text-base text-base self-center text-center mb-4 sm:self-start sm:text-left">{page.description}</h1>
+                 <a href={page.href} className="flex w-full justify-center sm:justify-start">
+                   <button
+                     className="w-full max-w-xs sm:w-auto bg-[#6E71FC] text-white rounded-md hover:bg-[#6366ed] transition shadow-md shadow-gray-700 text-lg sm:text-xl px-6 py-2 mt-0 self-center sm:self-start"
+                   >
+                     {page.buttonText} <span className='ml-2'>→</span>
+                   </button>
+                 </a>
+                </div>
 
-            <div className="flex justify-between lg:p-10 md:px-10 sm:px-10 lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
+                {/* Masaüstü ve tablet: sayfa sayısı ve çizgi göster, mobilde gizle */}
+                <div className="hidden sm:flex justify-between items-center w-full mt-4">
+                  <div className="flex items-center">
+                    <h1 className="text-gray-400">{index + 1}/</h1>
+                    <h1>{totalPages}</h1>
+                  </div>
+                  <div className="flex-1 h-[2px] bg-gray-300 mx-4"></div>
+                  <div className="flex space-x-2">
+                    <button 
+                      className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-6 rounded-full aspect-square cursor-pointer`}
+                      onClick={() => handlePageChange('prev')}
+                      disabled={currentPage === 1}
+                    >
+                      <FaArrowLeft size={30}/>
+                    </button>
+                    <button 
+                      className={`${currentPage < totalPages ? 'bg-gray-900' : 'bg-gray-500'} text-white p-6 rounded-full aspect-square cursor-pointer`}
+                      onClick={() => handlePageChange('next')}
+                      disabled={currentPage === totalPages}
+                    >
+                      <FaArrowRight size={30}/>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            {/* Masaüstü: görsel sağda, mobilde yukarıda zaten gösterildiği için burada sadece sm ve üstü için göster */}
+            <div className="hidden sm:block lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
               <Image src={page.image} width={800} height={600} className="w-full h-full rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />
+            </div>
+            {/* Mobilde oklar en altta ve ortalanmış */}
+            <div className="block sm:hidden w-full flex justify-center mt-6">
+              <div className="flex space-x-6">
+                <button 
+                  className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-4 rounded-full aspect-square cursor-pointer`}
+                  onClick={() => handlePageChange('prev')}
+                  disabled={currentPage === 1}
+                >
+                  <FaArrowLeft size={24}/>
+                </button>
+                <button 
+                  className={`${currentPage < totalPages ? 'bg-gray-900' : 'bg-gray-500'} text-white p-4 rounded-full aspect-square cursor-pointer`}
+                  onClick={() => handlePageChange('next')}
+                  disabled={currentPage === totalPages}
+                >
+                  <FaArrowRight size={24}/>
+                </button>
+              </div>
             </div>
           </div>
         ))}
