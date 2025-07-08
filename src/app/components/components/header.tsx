@@ -172,7 +172,7 @@ export default function Header() {
           </nav>
           <div className="mt-auto w-full">
             <hr className="mb-2 border-gray-300" />
-            <div className="flex flex-col gap-2 px-6 pb-4 mb-10">
+            <div className="flex flex-col gap-2 px-6 pb-4 mb-11">
               <div className="flex items-center gap-2 text-base">
                 <FaPhone />
                 <span>0551 966 78 36</span>
