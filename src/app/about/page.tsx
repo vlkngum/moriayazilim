@@ -4,7 +4,6 @@ import "@/app/globals.css";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
 
 export default function AboutPage() {
   const teamMembers = [

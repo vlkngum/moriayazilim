@@ -16,7 +16,7 @@ export default function Header_Short() {
           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
         </h2>
         <button
-          className="px-10 py-2 bg-blue-700 cursor-pointer text-white rounded-md hover:bg-blue-800 transition text-2xl shadow-md shadow-black flex items-center justify-center  md:mt-4 md:w-auto md:max-w-none"
+          className="px-10 py-2 bg-[#6e71fc] cursor-pointer text-white rounded-md hover:bg-[#6366ed] transition text-2xl shadow-md shadow-black flex items-center justify-center  md:mt-4 md:w-auto md:max-w-none"
           onClick={() => setShowModal(true)}
         >
           Teklif Al
