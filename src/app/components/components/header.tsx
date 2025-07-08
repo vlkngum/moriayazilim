@@ -150,7 +150,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-white flex flex-col h-full w-full md:hidden">
+        <div className="fixed inset-0 z-50 bg-white flex flex-col h-full w-full mb-10 md:hidden">
           <div className="flex items-start justify-between p-4 relative">
             <Link href="/">
               <Image src="/logo.png" alt="Logo" width={80} height={40} className="h-16 w-auto" />
@@ -172,7 +172,7 @@ export default function Header() {
           </nav>
           <div className="mt-auto w-full">
             <hr className="mb-2 border-gray-300" />
-            <div className="flex flex-col gap-2 px-6 pb-4">
+            <div className="flex flex-col gap-2 px-6 pb-4 mb-5">
               <div className="flex items-center gap-2 text-base">
                 <FaPhone />
                 <span>0551 966 78 36</span>
