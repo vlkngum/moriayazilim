@@ -24,7 +24,7 @@ export default function Header_Short() {
             <FiArrowRight />
           </span>
         </button>
-        {showModal && <PricingTable />}
+        <PricingTable isOpen={showModal} onClose={() => setShowModal(false)} />
       </div>
     </div>
   );
