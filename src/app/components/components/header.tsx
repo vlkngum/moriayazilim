@@ -48,7 +48,7 @@ export default function Header() {
           </span>
           <span className="flex items-center space-x-1 text-xs text-white">
             <FaEnvelope />
-            <span>iletisim@volkangumus.com</span>
+            <span>iletisim@moriayazilim.com</span>
           </span>
         </div>
 

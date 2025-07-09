@@ -4,20 +4,44 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState<'next' | 'prev' | null>(null);
   const totalPages = 3;
 
-  const handlePageChange = (direction: 'prev' | 'next') => {
-    if (direction === 'next' && currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    } else if (direction === 'prev' && currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+  const handlePageChange = (dir: 'prev' | 'next') => {
+    if (animating) return; // Animasyon sırasında tekrar tetiklenmesin
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+    if (dir === 'next' && currentPage < totalPages) {
+      if (isMobile) {
+        setDirection('next');
+        setAnimating(true);
+        setTimeout(() => {
+          setCurrentPage((prev) => prev + 1);
+          setAnimating(false);
+          setDirection(null);
+        }, 400); // animasyon süresiyle uyumlu olmalı
+      } else {
+        setCurrentPage((prev) => prev + 1);
+      }
+    } else if (dir === 'prev' && currentPage > 1) {
+      if (isMobile) {
+        setDirection('prev');
+        setAnimating(true);
+        setTimeout(() => {
+          setCurrentPage((prev) => prev - 1);
+          setAnimating(false);
+          setDirection(null);
+        }, 400);
+      } else {
+        setCurrentPage((prev) => prev - 1);
+      }
     }
   };
 
   const pageContent = [
     {
       title: "Projelerimiz",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fugit corporis dolor esse iure natus velit laborum expedita, deleniti beatae asperiores maiores, doloremque praesentium cum maxime sequi inventore architecto, nam necessitatibus? Nam blanditiis, ea ullam non sequi consectetur perspiciatis!",
+      description: "Her biri özenle tasarlanmış projelerimiz, kullanıcı odaklı yaklaşımla geliştirildi. Web, mobil ve masaüstü uygulamalarda modern, hızlı ve güvenilir çözümler sunarak müşterilerimizin dijital dünyada fark yaratmasını sağlıyoruz.",
       buttonText: "Yönlendir",
       image: "/our_work.jpg",
       href:'/about'
@@ -38,6 +62,15 @@ export default function Portfolio() {
     }
   ];
 
+  // Mobil animasyon class'ı
+  const getMobileSlideClass = (index: number) => {
+    if (typeof window === 'undefined' || window.innerWidth >= 640) return '';
+    if (index !== currentPage - 1) return 'hidden';
+    if (!animating) return 'transition-transform duration-400';
+    if (direction === 'next') return 'transition-transform duration-400 transform -translate-x-full';
+    if (direction === 'prev') return 'transition-transform duration-400 transform translate-x-full';
+    return '';
+  };
 
   return (
     <div className="relative max-w-full h-full overflow-hidden mt-10 mb-0 sm:mb-0">
@@ -50,7 +83,7 @@ export default function Portfolio() {
         {pageContent.map((page, index) => (
           <div
             key={index}
-            className={`w-full flex flex-col sm:flex-col-reverse md:flex-col-reverse lg:flex-row p-2 ${typeof window !== 'undefined' && window.innerWidth < 640 && currentPage - 1 !== index ? 'hidden' : ''}`}
+            className={`w-full flex flex-col sm:flex-col-reverse md:flex-col-reverse lg:flex-row p-2 ${typeof window !== 'undefined' && window.innerWidth < 640 ? getMobileSlideClass(index) : ''}`}
             style={typeof window !== 'undefined' && window.innerWidth < 640
               ? { width: '100%' }
               : { width: `${100 / totalPages}%` }}
@@ -83,14 +116,14 @@ export default function Portfolio() {
                     <button 
                       className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-6 rounded-full aspect-square cursor-pointer`}
                       onClick={() => handlePageChange('prev')}
-                      disabled={currentPage === 1}
+                      disabled={currentPage === 1 || animating}
                     >
                       <FaArrowLeft size={30}/>
                     </button>
                     <button 
                       className={`${currentPage < totalPages ? 'bg-gray-900' : 'bg-gray-500'} text-white p-6 rounded-full aspect-square cursor-pointer`}
                       onClick={() => handlePageChange('next')}
-                      disabled={currentPage === totalPages}
+                      disabled={currentPage === totalPages || animating}
                     >
                       <FaArrowRight size={30}/>
                     </button>
@@ -107,14 +140,14 @@ export default function Portfolio() {
                 <button 
                   className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-4 rounded-full aspect-square cursor-pointer`}
                   onClick={() => handlePageChange('prev')}
-                  disabled={currentPage === 1}
+                  disabled={currentPage === 1 || animating}
                 >
                   <FaArrowLeft size={24}/>
                 </button>
                 <button 
                   className={`${currentPage < totalPages ? 'bg-gray-900' : 'bg-gray-500'} text-white p-4 rounded-full aspect-square cursor-pointer`}
                   onClick={() => handlePageChange('next')}
-                  disabled={currentPage === totalPages}
+                  disabled={currentPage === totalPages || animating}
                 >
                   <FaArrowRight size={24}/>
                 </button>

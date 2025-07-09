@@ -45,6 +45,14 @@ export default function Header_Short() {
               setImageSrc('/code.png');
               setIsHovered(false);
             }}
+            onTouchStart={() => {
+              setImageSrc('/logodesign.jpg');
+              setIsHovered(true);
+            }}
+            onTouchEnd={() => {
+              setImageSrc('/code.png');
+              setIsHovered(false);
+            }}
           >
             <div className="w-full flex items-start transition-all duration-700 ease-in-out">
               <h1

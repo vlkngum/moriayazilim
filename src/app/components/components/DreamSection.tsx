@@ -25,18 +25,18 @@ const DreamSection: React.FC = () => {
           Moria Yazılım, birkaç gencin yazılıma duyduğu tutku ve hayallerle doğdu.
 Kod yazmak bizim için sadece iş değil, bir yaşam biçimiydi.
 Küçük bir odada, eski bilgisayarlarla ilk projelerimizi geliştirdik.
-İmkanlarımız kısıtlıydı ama heyecanımız ve öğrenme isteğimiz sonsuzdu.
-Geceleri kod yazar, gündüzleri araştırırdık; çok şey öğrendik, birçok hata yaptık ama hiç yılmadık.
-Her deneme bizi daha iyiye götürdü.
-Zamanla küçük işler almaya başladık, ilk müşterilerimiz bize güvendi.
-Bu güvenle cesaretlendik ve ekibimizi büyüttük.
-Amacımız hep kaliteli ve hızlı yazılım çözümleri üretmek oldu.
-İşimizi seviyoruz çünkü her satır kodda bir hayali gerçeğe dönüştürüyoruz.
-Bugün hâlâ ilk günkü heyecanla çalışıyor, yeni şeyler öğreniyoruz.
-Moria ismini hayal gücümüzden ilham alarak seçtik.
-Sadece yazılım değil, bir vizyon inşa ediyoruz.
+İmkânlarımız kısıtlıydı ama heyecanımız ve öğrenme isteğimiz sonsuzdu.
+Geceleri kod yazar, gündüzleri araştırırdık; çok şey öğrendik, hatalar yaptık ama yılmadık.
+Her deneme bizi geliştirdi.
+Zamanla küçük işler aldık, ilk müşterilerimiz bize güvendi.
+Bu güvenle ekibimizi büyüttük.
+Amacımız hep kaliteli ve hızlı çözümler sunmaktı.
+Her satır kodda bir hayali gerçeğe dönüştürüyoruz.
+Bugün hâlâ ilk günkü heyecanla çalışıyoruz.
+Moria ismini hayal gücümüzden aldık.
+Sadece yazılım değil, bir vizyon kuruyoruz.
 Sabır ve azimle her şeyin mümkün olduğunu öğrendik.
-Şimdi daha güçlüyüz, çünkü bir ekip ve aile olduk.
+Artık daha güçlüyüz; bir ekip, bir aileyiz.
 Ve biliyoruz ki en güzel projelerimiz henüz gelmedi.
           </p>
         </div>
