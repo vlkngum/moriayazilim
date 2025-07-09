@@ -1,10 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header_Short() {
   const [imageSrc, setImageSrc] = useState('/code.png');
   const [isHovered, setIsHovered] = useState(false);
+
+  // Görselleri önceden yükle
+  useEffect(() => {
+    const images = ['/code.png', '/logodesign.jpg'];
+    images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
       <div className="w-full h-[70vh] md:h-screen items-center justify-center flex ">
