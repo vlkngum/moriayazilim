@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const DreamSection: React.FC = () => {
   const cards = [
@@ -44,11 +45,13 @@ Ve biliyoruz ki en güzel projelerimiz henüz gelmedi.
         {/* Sağ: Görsel + 2x2 Grid */}
         <div className="flex-1 flex flex-col gap-6 h-[90vh]">
           {/* Üst: Görsel */}
-          <div className="w-full h-1/2 shadow-lg border border-gray-200 rounded-2xl overflow-hidden shadow">
-            <img
+          <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-1/2 shadow-lg border border-gray-200 rounded-2xl overflow-hidden shadow">
+            <Image
               src="/about_us.jpg"
               alt="Dream Section Görseli"
               className="w-full h-full object-cover"
+              fill
+              priority
             />
           </div>
 

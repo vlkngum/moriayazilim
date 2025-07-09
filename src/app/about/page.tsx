@@ -165,7 +165,7 @@ export default function AboutPage() {
                 <svg className="mx-auto mb-4 h-12 w-12 text-fuchsia-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 11c1.657 0 3-1.343 3-3V7a3 3 0 10-6 0v1c0 1.657 1.343 3 3 3zm6 2v5a2 2 0 01-2 2H8a2 2 0 01-2-2v-5a6 6 0 1112 0z" /></svg>
               )
             }
-          ].map((value, index) => (
+          ].map((value) => (
             <motion.div
               key={value.title}
               initial={{ opacity: 0, y: 20 }}
