@@ -170,9 +170,10 @@ export default function AboutPage() {
               key={value.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              whileHover={{ scale: 1.05, boxShadow: '0px 8px 32px #a21caf22' }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
-              className="text-center p-8 cursor-pointer rounded-2xl bg-gradient-to-br from-fuchsia-50 to-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border border-fuchsia-100"
+              className="text-center p-8 cursor-pointer rounded-2xl bg-gradient-to-br from-fuchsia-50 to-white shadow-xl transition-all duration-300 border border-fuchsia-100"
             >
               {value.icon}
               <h3 className="text-2xl font-extrabold mb-3 text-fuchsia-800 tracking-tight drop-shadow-sm">{value.title}</h3>
