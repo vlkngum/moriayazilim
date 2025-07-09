@@ -17,8 +17,8 @@ const DreamSection: React.FC = () => {
             <div className="text-orange-500 text-xl font-semibold mb-4">Nasıl Başladık?</div>
             <div className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             Hayal, Tutku ve <br />
-            Kodlarla Başlayan <br />
-            Moria Yazılım’ın Doğuş Hikayesi
+            Kodlarla <br />
+            Moria’nın Doğuşu
             </div>
           </div>
           <p className="text-gray-700 text-base md:text-lg mt-auto">
