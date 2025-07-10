@@ -1,0 +1,47 @@
+import { FaInstagram, FaYoutube, FaXTwitter, FaWhatsapp,FaLinkedin } from 'react-icons/fa6';
+import { MdEmail } from 'react-icons/md';
+import { socialMediaLinks } from '@/app/data/navigation';
+
+interface SocialMediaIconsProps {
+  className?: string;
+  iconSize?: string;
+  textColor?: string;
+}
+
+export default function SocialMediaIcons({ className = "", iconSize = "text-xl", textColor = "text-gray-700" }: SocialMediaIconsProps) {
+  const iconMap = {
+    FaInstagram: FaInstagram,
+    FaYoutube: FaYoutube,
+    FaXTwitter: FaXTwitter,
+    FaWhatsapp: FaWhatsapp,
+    FaLinkedin: FaLinkedin,
+    MdEmail:MdEmail
+  };
+
+  const socialLinks = socialMediaLinks.map(social => ({
+    icon: iconMap[social.icon as keyof typeof iconMap],
+    href: social.url,
+    label: social.name,
+    color: social.color
+  }));
+
+  return (
+    <div className={`flex flex-row items-center gap-4 ${className}`}>
+      {socialLinks.map((social, index) => {
+        const IconComponent = social.icon;
+        return (
+          <a
+            key={index}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={social.label}
+            className={`cursor-pointer ${iconSize} ${textColor} hover:scale-125 transition-all duration-300 ${social.color}`}
+          >
+            <IconComponent />
+          </a>
+        );
+      })}
+    </div>
+  );
+} 

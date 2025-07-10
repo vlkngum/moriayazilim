@@ -27,15 +27,15 @@ export default function Header_Short() {
             }`}>
             <div className="w-full flex items-start transition-all duration-700 ease-in-out">
               <h1
-                className={`text-base md:text-6xl text-white transition-all duration-700 ${!isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-70'}`}>01</h1>
+                className={`text-base md:text-8xl text-white transition-all duration-700 ${!isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-50'}`}>01</h1>
             </div>
             <div className="w-full flex items-start transition-all duration-700 ease-in-out">
               <h1
-                className={`text-base md:text-3xl text-white transition-all duration-700 ${!isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-70'}`}>Web Tasarım</h1>
+                className={`text-base md:text-4xl text-white transition-all duration-700 ${!isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-50'}`}>Web Tasarım</h1>
             </div>
             <div className="w-full flex items-start transition-all duration-700 ease-in-out">
               <h1
-                className={`text-sm md:text-xl text-white leading-snug break-words transition-all duration-700 ${!isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-70'}`}
+                className={`text-sm md:text-xl text-white leading-snug break-words transition-all duration-700 ${!isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-50'}`}
               >
                 Modern ve kullanıcı dostu web tasarımı ile markanızı dijital dünyada öne çıkarıyoruz. Responsive tasarım, SEO uyumlu yapı ve hızlı yükleme süreleri ile müşterilerinize en iyi deneyimi sunuyoruz.
               </h1>
@@ -65,15 +65,15 @@ export default function Header_Short() {
           >
             <div className="w-full flex items-start transition-all duration-700 ease-in-out">
               <h1
-                className={`text-base md:text-6xl text-white transition-all duration-700 ${isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-70'}`}>02</h1>
+                className={`text-base md:text-8xl text-white transition-all duration-700 ${isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-50'}`}>02</h1>
             </div>
             <div className="w-full flex items-start transition-all duration-700 ease-in-out">
               <h1
-                className={`text-base md:text-3xl text-white transition-all duration-700 ${isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-70'}`}>Logo Tasarım </h1>
+                className={`text-base md:text-4xl text-white transition-all duration-700 ${isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-50'}`}>Logo Tasarım </h1>
             </div>
             <div className="w-full flex items-start transition-all duration-700 ease-in-out">
               <h1
-                className={`text-sm md:text-xl text-white leading-snug break-words transition-all duration-700 ${isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-70'}`}
+                className={`text-sm md:text-xl text-white leading-snug break-words transition-all duration-700 ${isHovered ? 'translate-y-[-10px] opacity-100' : 'opacity-50'}`}
               >
                 Markanızın kimliğini yansıtan, akılda kalıcı ve profesyonel logo tasarımları oluşturuyoruz. Her logo, markanızın değerlerini ve hedef kitlenizi yansıtacak şekilde özenle tasarlanır.
               </h1>

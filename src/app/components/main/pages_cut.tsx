@@ -1,6 +1,9 @@
+"use client";
+
 import Image from 'next/image';
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { FiArrowRight } from 'react-icons/fi';
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -90,17 +93,19 @@ export default function Portfolio() {
           >
             {/* Mobilde görsel üstte, masaüstünde sağda */}
             <div className="block sm:hidden w-full mb-4">
-              <Image src={page.image} width={800} height={220} className="w-full h-[220px] rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />
+              <Image src={page.image} width={800} height={220} className="w-full h-[220px] md:rounden-3xl rounded-xl shadow-md object-cover shadow-gray-500" alt={page.title} />
             </div>
             <div className="flex flex-col justify-between lg:p-10 md:p-10 sm:p-10 w-full lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2 items-center">
                 <div className="flex-col justify-between w-full">
-                 <h1 className="lg:text-8xl md:text-6xl sm:text-4xl text-2xl self-center font-semibold mb-5 text-center sm:self-start sm:text-left">{page.title}</h1>
+                 <h1 className="lg:text-8xl md:text-6xl sm:text-4xl text-3xl self-center font-bold mb-2 text-center sm:self-start sm:text-left">{page.title}</h1>
                  <h1 className="lg:text-xl md:text-lg sm:text-base text-base self-center text-center mb-4 sm:self-start sm:text-left">{page.description}</h1>
                  <a href={page.href} className="flex w-full justify-center sm:justify-start">
                    <button
-                     className="w-full max-w-xs sm:w-auto bg-[#6E71FC] text-white rounded-md hover:bg-[#6366ed] transition shadow-md shadow-gray-700 text-lg sm:text-xl px-6 py-2 mt-0 self-center sm:self-start"
+                     className="flex w-full max-w-xs sm:w-auto bg-blue-700 text-white rounded-md hover:bg-blue-800 transition shadow-sm shadow-gray-700 text-lg sm:text-xl px-6 py-2 mt-0 self-center sm:self-start"
                    >
-                     {page.buttonText} <span className='ml-2'>→</span>
+                     {page.buttonText} <span className="ml-2 flex items-center text-md">
+                      <FiArrowRight />
+                    </span>
                    </button>
                  </a>
                 </div>
@@ -132,16 +137,16 @@ export default function Portfolio() {
               </div>
             {/* Masaüstü: görsel sağda, mobilde yukarıda zaten gösterildiği için burada sadece sm ve üstü için göster */}
             <div className="hidden sm:block lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
-              <Image src={page.image} width={800} height={600} className="w-full h-full rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />
+              <Image src={page.image} width={800} height={600} className="w-full h-full rounded-md md:rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />
             </div>
             {/* Mobilde oklar en altta ve ortalanmış */}
-            <div className="block sm:hidden w-full flex justify-center mt-6">
+            <div className="sm:hidden w-full flex justify-center mt-6">
               <div className="flex space-x-6">
                 <button 
                   className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-4 rounded-full aspect-square cursor-pointer`}
                   onClick={() => handlePageChange('prev')}
                   disabled={currentPage === 1 || animating}
-                >
+                >|
                   <FaArrowLeft size={24}/>
                 </button>
                 <button 

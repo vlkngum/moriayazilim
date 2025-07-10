@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";  
 import Image from "next/image";
+import { navigationItems } from '@/app/data/navigation';
 
 interface HeaderWhiteProps {
   setShowWhiteHeader: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,7 +33,7 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
 
 
   return (
-    <header className="justify-center items-center py-6 bg-white border-b border-black"> 
+    <header className="justify-center items-center py-6 bg-white/80 "> 
       <div className="flex justify-between items-center px-20"> 
         <div className="text-4xl font-bold ">
           <Link href="/">
@@ -42,23 +43,18 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
  
         <nav>
           <ul className="flex space-x-14 text-xl font-semibold">
-            {[
-              { name: "Anasayfa", path: "/" },
-              { name: "Hakkımızda", path: "/about" },
-              { name: "Portfolyomuz", path: "/portfolio" },
-              { name: "İletişim", path: "/contact" },
-            ].map(({ name, path }) => (
+            {navigationItems.map(({ name, path }) => (
               <li
                 key={path}
                 className="relative group"
                 onMouseEnter={() => setHovered(path)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <Link href={path} className="text-black transition-all duration-300 lg:text-2xl md:text-lg">
+                <Link href={path} className="text-gray-700 transition-all duration-300 lg:text-2xl md:text-lg">
                   {name}
                 </Link>
                 <span
-                  className={`absolute left-0 bottom-0 w-full h-[2px] bg-black transition-transform duration-500 scale-x-0 
+                  className={`absolute left-0 bottom-0 w-full h-[2px] bg-gray-700 transition-transform duration-500 scale-x-0 
                   ${hovered === path ? "scale-x-100" : pathname === path && !hovered ? "scale-x-100" : ""}`}
                 />
               </li>

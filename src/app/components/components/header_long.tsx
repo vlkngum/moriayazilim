@@ -1,10 +1,7 @@
-import { FiArrowRight } from "react-icons/fi";
-import { useState } from "react";
-import PricingTable from "./priceModal";
+import { FiArrowRight } from "react-icons/fi"; 
 
 export default function Header_Short() {
-   
-  const [showModal, setShowModal] = useState(false);
+    
 
   return (
     <div 
@@ -16,15 +13,14 @@ export default function Header_Short() {
         Hayalindeki projeyi birlikte hayata geçirelim. Moria Yazılım, güçlü ve yenilikçi çözümlerle her zaman yanında!
         </h2>
         <button
-          className="px-10 py-2 bg-[#6e71fc] cursor-pointer text-white rounded-md hover:bg-[#6366ed] transition text-2xl shadow-md shadow-black flex items-center justify-center  md:mt-4 md:w-auto md:max-w-none"
-          onClick={() => setShowModal(true)}
+          className="px-10 py-2 bg-blue-700 cursor-pointer text-white rounded-md hover:bg-blue-800 transition text-2xl shadow-md shadow-black flex items-center justify-center  md:mt-4 md:w-auto md:max-w-none"
+         
         >
           Teklif Al
           <span className="ml-2 flex items-center text-md">
             <FiArrowRight />
           </span>
-        </button>
-        <PricingTable isOpen={showModal} onClose={() => setShowModal(false)} />
+        </button> 
       </div>
     </div>
   );

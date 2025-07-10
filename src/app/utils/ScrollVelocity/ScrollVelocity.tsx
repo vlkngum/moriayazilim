@@ -1,3 +1,5 @@
+"use client";
+
 import { MutableRefObject, ReactNode } from "react";
 import React, { useState, useLayoutEffect, useRef } from "react";
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from "framer-motion";
