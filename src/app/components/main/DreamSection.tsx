@@ -47,6 +47,36 @@ function useCountUp(to: number, duration = 600, start = false) {
   return count;
 }
 
+type StatCardProps = {
+  value: string;
+  label: string;
+  index: number;
+  statsInView: boolean;
+};
+
+function StatCard({ value, label, index, statsInView }: StatCardProps) {
+  const match = value.match(/(\d+)(\+?)/);
+  const number = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : "";
+  const animated = useCountUp(number, 600 + index * 100, statsInView);
+
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+      }}
+      className="flex flex-col items-center justify-center bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center h-full transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+    >
+      <span className="text-xl md:text-3xl font-bold flex items-baseline">
+        {animated}
+        <span className="text-orange-500 text-lg md:text-2xl ml-1">{suffix}</span>
+      </span>
+      <span className="text-gray-600 mt-2 text-md md:text-xl">{label}</span>
+    </motion.div>
+  );
+}
+
 const DreamSection: React.FC = () => {
   const DREAM_DATA = {
     title: {
@@ -71,13 +101,6 @@ const DreamSection: React.FC = () => {
 
   // Sayaç grid için görünürlük kontrolü
   const [statsRef, statsInView] = useInView({ threshold: 0.3 });
-
-  // Her stat için animasyonlu sayıyı önceden hesapla
-  const animatedStats = DREAM_DATA.stats.map((card, index) => {
-    const match = card.value.match(/(\d+)(\+?)/);
-    const number = match ? parseInt(match[1], 10) : 0;
-    return useCountUp(number, 600 + index * 100, statsInView);
-  });
 
   return (
     <div className="w-full  p-4 md:p-8">
@@ -143,26 +166,15 @@ const DreamSection: React.FC = () => {
             }}
             className="grid grid-cols-2 gap-4 h-1/2"
           >
-            {DREAM_DATA.stats.map((card, index) => {
-              const match = card.value.match(/(\d+)(\+?)/);
-              const suffix = match ? match[2] : "";
-              return (
-                <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-                  }}
-                  className="flex flex-col items-center justify-center bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center h-full transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-                >
-                  <span className="text-xl md:text-3xl font-bold flex items-baseline">
-                    {animatedStats[index]}
-                    <span className="text-orange-500 text-lg md:text-2xl ml-1">{suffix}</span>
-                  </span>
-                  <span className="text-gray-600 mt-2 text-md md:text-xl">{card.label}</span>
-                </motion.div>
-              );
-            })}
+            {DREAM_DATA.stats.map((card, index) => (
+              <StatCard
+                key={index}
+                value={card.value}
+                label={card.label}
+                index={index}
+                statsInView={statsInView}
+              />
+            ))}
           </motion.div>
         </motion.div>
       </div>
