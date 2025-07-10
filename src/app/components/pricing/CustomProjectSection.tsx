@@ -1,8 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function CustomProjectSection() {
+  const router = useRouter();
+  
+  const handleCustomProjectClick = () => {
+    const subject = "Özel Proje Teklifi";
+    const message = "Merhaba, özel bir proje için teklif almak istiyorum.";
+    const params = new URLSearchParams({ subject, message });
+    router.push(`/contact?${params.toString()}`);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -59,6 +69,7 @@ export default function CustomProjectSection() {
           }}
           viewport={{ once: true }}
           className="bg-gradient-to-r cursor-pointer from-blue-600 to-blue-700 text-white px-8 py-3 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+          onClick={handleCustomProjectClick}
         >
           Özel Teklif Al
         </motion.button>

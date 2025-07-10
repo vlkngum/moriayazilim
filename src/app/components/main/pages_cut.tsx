@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { FiArrowRight } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -95,7 +96,16 @@ export default function Portfolio() {
             <div className="block sm:hidden w-full mb-4">
               <Image src={page.image} width={800} height={220} className="w-full h-[220px] md:rounden-3xl rounded-xl shadow-md object-cover shadow-gray-500" alt={page.title} />
             </div>
-            <div className="flex flex-col justify-between lg:p-10 md:p-10 sm:p-10 w-full lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2 items-center">
+            <AnimatePresence mode="wait">
+            {currentPage - 1 === index && (
+              <motion.div
+                key={currentPage}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -40 }}
+                transition={{ duration: 0.85, ease: 'easeOut' }}
+                className="flex flex-col justify-between lg:p-10 md:p-10 sm:p-10 w-full lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2 items-center"
+              >
                 <div className="flex-col justify-between w-full">
                  <h1 className="lg:text-8xl md:text-6xl sm:text-4xl text-3xl self-center font-bold mb-2 text-center sm:self-start sm:text-left">{page.title}</h1>
                  <h1 className="lg:text-xl md:text-lg sm:text-base text-base self-center text-center mb-4 sm:self-start sm:text-left">{page.description}</h1>
@@ -116,7 +126,12 @@ export default function Portfolio() {
                     <h1 className="text-gray-400">{index + 1}/</h1>
                     <h1>{totalPages}</h1>
                   </div>
-                  <div className="flex-1 h-[2px] bg-gray-300 mx-4"></div>
+                  <div className="flex-1 h-[2px] bg-gray-300 mx-4 relative overflow-hidden">
+                  <div
+                    className="absolute left-0 top-0 h-full bg-gray-900 transition-all duration-500"
+                    style={{ width: `${(currentPage / totalPages) * 100}%` }}
+                  ></div>
+                </div>
                   <div className="flex space-x-2">
                     <button 
                       className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-6 rounded-full aspect-square cursor-pointer`}
@@ -134,7 +149,9 @@ export default function Portfolio() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
+            )}
+            </AnimatePresence>
             {/* Masaüstü: görsel sağda, mobilde yukarıda zaten gösterildiği için burada sadece sm ve üstü için göster */}
             <div className="hidden sm:block lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2">
               <Image src={page.image} width={800} height={600} className="w-full h-full rounded-md md:rounded-3xl shadow-md object-cover shadow-gray-500" alt={page.title} />

@@ -1,5 +1,51 @@
-import React from "react";
+'use client';
+
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+// Intersection Observer tabanlı görünürlük kontrolü
+function useInView(options = { threshold: 0.3 }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      options
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [options]);
+
+  return [ref, inView] as const;
+}
+
+// Sayaç animasyonu için yardımcı hook
+function useCountUp(to: number, duration = 600, start = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startVal = 0;
+    const startTime = performance.now();
+    function animate(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(progress * (to - startVal) + startVal);
+      setCount(current);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(to);
+      }
+    }
+    requestAnimationFrame(animate);
+    // Temizlik
+    return () => setCount(to);
+  }, [to, duration, start]);
+  return count;
+}
 
 const DreamSection: React.FC = () => {
   const DREAM_DATA = {
@@ -23,11 +69,20 @@ const DreamSection: React.FC = () => {
     ]
   };
 
+  // Sayaç grid için görünürlük kontrolü
+  const [statsRef, statsInView] = useInView({ threshold: 0.3 });
+
   return (
     <div className="w-full  p-4 md:p-8">
       <div className="flex flex-col lg:flex-row gap-6 ">
         {/* Sol: Başlık ve Açıklama */}
-        <div className="flex-1 bg-white shadow-lg border border-gray-200 rounded-2xl p-8  md:min-h-[70vh] flex flex-col h-full">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="flex-1 bg-white shadow-lg border border-gray-200 rounded-2xl p-8  md:min-h-[70vh] flex flex-col h-full"
+        >
           <div>
             <div className="text-orange-500 text-xl mb-3">{DREAM_DATA.title.subtitle}</div>
             <div className="text-4xl md:text-6xl font-bold mb-6 leading-tight whitespace-pre-line">
@@ -38,12 +93,24 @@ const DreamSection: React.FC = () => {
             <span className="block md:hidden">{DREAM_DATA.description.mobile}</span>
             <span className="hidden md:block">{DREAM_DATA.description.desktop}</span>
           </p>
-        </div>
+        </motion.div>
 
         {/* Sağ: Görsel + 2x2 Grid */}
-        <div className="flex-1 flex flex-col gap-6 md:min-h-[70vh] bg-white shadow-lg border border-gray-200 rounded-2xl p-2">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+          className="flex-1 flex flex-col gap-6 md:min-h-[70vh] bg-white shadow-lg border border-gray-200 rounded-2xl p-2"
+        >
           {/* Üst: Görsel */}
-          <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-1/2 shadow-lg border border-gray-200 rounded-2xl overflow-hidden ">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+            className="relative w-full h-48 sm:h-64 md:h-80 lg:h-1/2 shadow-lg border border-gray-200 rounded-2xl overflow-hidden "
+          >
             <Image
               src={DREAM_DATA.image.src}
               alt={DREAM_DATA.image.alt}
@@ -51,21 +118,49 @@ const DreamSection: React.FC = () => {
               fill
               priority
             />
-          </div>
+          </motion.div>
 
           {/* Alt: 2x2 Grid */}
-          <div className="grid grid-cols-2 gap-4 h-1/2">
-            {DREAM_DATA.stats.map((card, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center h-full"
-              >
-                <span className="text-xl md:text-3xl font-bold">{card.value}</span>
-                <span className="text-gray-600 mt-2 text-md md:text-xl">{card.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          <motion.div
+            ref={statsRef}
+            initial="hidden"
+            animate={statsInView ? "visible" : "hidden"}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
+            className="grid grid-cols-2 gap-4 h-1/2"
+          >
+            {DREAM_DATA.stats.map((card, index) => {
+              // Stat değeri: "5+" gibi ise, sayı ve ek kısmını ayır
+              const match = card.value.match(/(\d+)(\+?)/);
+              const number = match ? parseInt(match[1], 10) : 0;
+              const suffix = match ? match[2] : "";
+              const animated = useCountUp(number, 600 + index * 100, statsInView); // sadece görünürken başla
+              return (
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+                  }}
+                  className="flex flex-col items-center justify-center bg-white rounded-xl shadow-lg border border-gray-200 p-6 text-center h-full transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                >
+                  <span className="text-xl md:text-3xl font-bold flex items-baseline">
+                    {animated}
+                    <span className="text-orange-500 text-lg md:text-2xl ml-1">{suffix}</span>
+                  </span>
+                  <span className="text-gray-600 mt-2 text-md md:text-xl">{card.label}</span>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
