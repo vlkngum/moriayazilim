@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",
+    "framer-motion": "^11.18.2",
     "motion": "^12.10.4",
     "motion-react": "^0.15.0-alpha.1",
     "next": "15.3.2",
