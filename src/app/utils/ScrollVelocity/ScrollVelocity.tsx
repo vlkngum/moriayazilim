@@ -54,7 +54,6 @@ export const ScrollVelocity = ({
     children,
     baseVelocity = velocity,
     scrollContainerRef,
-    className = "",
     damping,
     stiffness,
     numCopies,
@@ -67,7 +66,6 @@ export const ScrollVelocity = ({
     children: ReactNode;
     baseVelocity: number;
     scrollContainerRef?: MutableRefObject<HTMLElement | null>;
-    className?: string;
     damping?: number;
     stiffness?: number;
     numCopies?: number;
@@ -126,7 +124,7 @@ export const ScrollVelocity = ({
     for (let i = 0; i < (numCopies ?? 1); i++) {
       spans.push(
         <span
-          className={`flex-shrink-0 ${className}`}
+          className={`flex-shrink-0`}
           key={i}
           ref={i === 0 ? copyRef : null}
         >
@@ -151,11 +149,10 @@ export const ScrollVelocity = ({
   }
 
   return (
-    <section>
+    <section className={className}>
       {texts.map((text, index) => (
         <VelocityText
           key={index}
-          className={className}
           baseVelocity={index % 2 !== 0 ? -velocity : velocity}
           scrollContainerRef={scrollContainerRef}
           damping={damping}

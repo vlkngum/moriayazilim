@@ -45,17 +45,25 @@ export default function Header() {
     <header className="px-3 py-2 md:flex hidden flex-col"> 
       <div className="flex justify-between items-center">
         <div className="flex space-x-3">
-          <span className="flex items-center space-x-1 text-xs text-white">
+          <a
+            href="https://wa.me/905519667836"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-1 text-xs text-white hover:underline"
+          >
             <FaWhatsapp />
             <span>{contactInfo.phone}</span>
-          </span>
-          <span className="flex items-center space-x-1 text-xs text-white">
+          </a>
+          <a
+            href="mailto:iletisim@moriayazilim.com"
+            className="flex items-center space-x-1 text-xs text-white hover:underline"
+          >
             <FaEnvelope />
             <span>{contactInfo.email}</span>
-          </span>
+          </a>
         </div>
 
-        <SocialMediaIcons className="text-xs" iconSize="text-sm" textColor="text-white" />
+        <SocialMediaIcons className="text-xs" iconSize="text-sm" textColor="text-white" exclude={['FaWhatsapp','MdEmail']} />
       </div>
  
       <div className="flex justify-between items-center mt-6 px-20"> 
@@ -163,7 +171,7 @@ export default function Header() {
                   <FaWhatsapp />
                   <span>{contactInfo.phone}</span>
                 </div>
-                <SocialMediaIcons className="text-xl" iconSize="text-xl" />
+                <SocialMediaIcons className="text-xl" iconSize="text-xl" exclude={['FaWhatsapp','MdEmail']} />
               </div>
               <div className="flex items-center gap-2 text-base">
                 <FaEnvelope />

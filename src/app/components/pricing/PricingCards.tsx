@@ -4,10 +4,20 @@ import { IoCheckmarkCircle, IoCloseSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
+// Define the Plan type
+interface Plan {
+  name: string;
+  price: string;
+  description: string;
+  recommended: boolean;
+  features: string[];
+  included: boolean[];
+}
+
 export default function PricingCards() {
   const router = useRouter();
   
-  const plans = [
+  const plans: Plan[] = [
     {
       name: "Basit Plan",
       price: "1000 TL",
@@ -67,7 +77,7 @@ export default function PricingCards() {
     },
   ];
 
-  const handlePackageSelect = (plan: any) => {
+  const handlePackageSelect = (plan: Plan) => {
     const subject = `${plan.name} Paketi Hakkında Bilgi`;
     const message = `Merhaba,\n\n${plan.name} paketi hakkında detaylı bilgi almak istiyorum.\n\nLütfen bu paket hakkında daha detaylı bilgi verebilir misiniz?`;
     

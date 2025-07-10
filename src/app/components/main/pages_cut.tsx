@@ -43,23 +43,23 @@ export default function Portfolio() {
 
   const pageContent = [
     {
-      title: "Projelerimiz",
-      description: "Her biri özenle tasarlanmış projelerimiz, kullanıcı odaklı yaklaşımla geliştirildi. Web, mobil ve masaüstü uygulamalarda modern, hızlı ve güvenilir çözümler sunarak müşterilerimizin dijital dünyada fark yaratmasını sağlıyoruz.",
-      buttonText: "Yönlendir",
+      title: "Hakkımızda",
+      description: "Hayal gücünü kodla buluşturan genç ve dinamik bir ekibiz. Modern teknolojilerle yazılım çözümleri geliştiriyor, her projeye tutkuyla yaklaşıyoruz. Moria Yazılım, fikirlerin gerçeğe dönüştüğü yerdir.",
+      buttonText: "Bizi Tanıyın",
       image: "/our_work.jpg",
       href:'/about'
     },
     {
       title: "Portfolyomuz",
-      description: "İkinci sayfamıza hoş geldiniz. Burada tamamladığımız en önemli projeleri görebilirsiniz. Her bir proje, benzersiz zorluklar ve yaratıcı çözümler sunmaktadır. Müşterilerimizle yakın işbirliği içinde çalışarak, her projede üstün kalite ve yenilikçi yaklaşımlar sunmayı hedefliyoruz.",
-      buttonText: "Projeleri Gör",
-      image: "/contact2.jpg",
+      description: "Her biri özenle planlanmış projelerimiz, kullanıcı deneyimi ve estetiği ön planda tutarak geliştirildi. Web'den mobil uygulamalara kadar geniş bir yelpazede, yenilikçi ve güvenilir çözümler sunuyoruz.",
+      buttonText: "Çalışmalarımız",
+      image: "/calismalarimiz.jpg",
       href:'/portfolio'
     },
     {
       title: "İletişim",
-      description: "Bizimle iletişime geçmek için bu formunu kullanabilirsiniz. En kısa sürede size geri dönüş yapacağız. Sorularınızı, önerilerinizi veya işbirliği tekliflerinizi bekleriz. Daha fazla bilgi için sosyal medya hesaplarımızı da takip edebilirsiniz.",
-      buttonText: "Gönder",
+      description: "Fikriniz mi var? Haydi konuşalım! Size en uygun dijital çözümleri birlikte belirleyelim. Moria Yazılım ekibi, her zaman bir mesaj uzağınızda.",
+      buttonText: "Bize Ulaşın",
       image: "/contact2.jpg",
       href:'/contact'
     }
@@ -143,14 +143,14 @@ export default function Portfolio() {
             <div className="sm:hidden w-full flex justify-center mt-6">
               <div className="flex space-x-6">
                 <button 
-                  className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white p-4 rounded-full aspect-square cursor-pointer`}
+                  className={`${currentPage > 1 ? 'bg-gray-900' : 'bg-gray-500'} text-white w-14 h-14 flex items-center justify-center rounded-full cursor-pointer transition`}
                   onClick={() => handlePageChange('prev')}
                   disabled={currentPage === 1 || animating}
-                >|
+                >
                   <FaArrowLeft size={24}/>
                 </button>
                 <button 
-                  className={`${currentPage < totalPages ? 'bg-gray-900' : 'bg-gray-500'} text-white p-4 rounded-full aspect-square cursor-pointer`}
+                  className={`${currentPage < totalPages ? 'bg-gray-900' : 'bg-gray-500'} text-white w-14 h-14 flex items-center justify-center rounded-full cursor-pointer transition`}
                   onClick={() => handlePageChange('next')}
                   disabled={currentPage === totalPages || animating}
                 >

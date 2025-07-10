@@ -6,9 +6,10 @@ interface SocialMediaIconsProps {
   className?: string;
   iconSize?: string;
   textColor?: string;
+  exclude?: string[];
 }
 
-export default function SocialMediaIcons({ className = "", iconSize = "text-xl", textColor = "text-gray-700" }: SocialMediaIconsProps) {
+export default function SocialMediaIcons({ className = "", iconSize = "text-xl", textColor = "text-gray-700", exclude = [] }: SocialMediaIconsProps) {
   const iconMap = {
     FaInstagram: FaInstagram,
     FaYoutube: FaYoutube,
@@ -18,12 +19,14 @@ export default function SocialMediaIcons({ className = "", iconSize = "text-xl",
     MdEmail:MdEmail
   };
 
-  const socialLinks = socialMediaLinks.map(social => ({
-    icon: iconMap[social.icon as keyof typeof iconMap],
-    href: social.url,
-    label: social.name,
-    color: social.color
-  }));
+  const socialLinks = socialMediaLinks
+    .filter(social => !(exclude && exclude.includes(social.icon)))
+    .map(social => ({
+      icon: iconMap[social.icon as keyof typeof iconMap],
+      href: social.url,
+      label: social.name,
+      color: social.color
+    }));
 
   return (
     <div className={`flex flex-row items-center gap-4 ${className}`}>

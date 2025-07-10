@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <>
     
-    <footer className="w-full md:h-[10lvh] items-center justify-center md:p-4">
+    <footer className="w-full md:h-[10lvh] items-center justify-center md:p-4 mt-8">
       <div className="container mx-auto py-10 px-6 justify-between items-center border-t border-black/43 flex flex-col md:flex-row ">
         <div className="flex self-center  md:pb-0 pb-6">
           <Link href="/">

@@ -45,7 +45,7 @@ export default function ValuesSection() {
         viewport={{ once: true }}
         className="grid md:grid-cols-3 gap-10"
       >
-        {values.map((value, index) => (
+        {values.map((value) => (
           <motion.div
             key={value.title}
             initial={{ opacity: 0, y: 30, scale: 0.9 }}

@@ -7,7 +7,6 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
 import { FaInstagram, FaYoutube, FaXTwitter, FaWhatsapp,FaLinkedin } from 'react-icons/fa6';
-import { socialMediaLinks, contactInfo } from '@/app/data/navigation';
 
 // Contact information data
 const contactDetails = [
