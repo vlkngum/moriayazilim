@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
 
         <nav className="w-full md:w-auto flex flex-col md:flex md:flex-row md:space-x-6 text-gray-700 font-medium md:items-center items-start">
-          {navigationItems.map(({ name, path }, index) => {
+          {navigationItems.map(({ name, path }) => {
             return (
               <Link 
                 key={path}
