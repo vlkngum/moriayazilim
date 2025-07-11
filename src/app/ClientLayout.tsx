@@ -17,7 +17,6 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [showHeader] = useState(true);
   const pathname = usePathname();
   const [showWhiteHeader, setShowWhiteHeader] = useState(false);
 
