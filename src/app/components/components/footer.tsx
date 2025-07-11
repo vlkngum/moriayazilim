@@ -7,35 +7,26 @@ export default function Footer() {
     <>
     
     <footer className="w-full md:h-[10lvh] items-center justify-center md:p-4 mt-8">
-      <div className="container mx-auto py-10 px-6 justify-between items-center border-t border-black/43 flex flex-col md:flex-row ">
-        <div className="flex self-center  md:pb-0 pb-6">
+      <div className="container mx-auto py-10 px-6 border-t border-black/43 flex flex-col md:flex-row md:justify-between md:items-center">
+        <div className="w-full md:w-auto flex md:block justify-start md:justify-start mb-4 md:mb-0 items-center">
           <Link href="/">
-              <Image 
-                src="/logo.png" 
-                alt="Logo"
-                width={12}
-                height={12}
-                className="h-12 w-12 hover:scale-110 transition-all duration-300"
-              />
-            </Link>
-          
+            <Image 
+              src="/logo.png" 
+              alt="Logo"
+              width={12}
+              height={12}
+              className="h-12 w-12 hover:scale-110 transition-all duration-300"
+            />
+          </Link>
+          <span className="ml-3 text-xl font-medium md:hidden">Moria Yazılım</span>
         </div>
 
-        <nav className="md:flex md:flex-row md:space-x-6 text-gray-700 font-medium self-center grid grid-cols-2">
+        <nav className="w-full md:w-auto flex flex-col md:flex md:flex-row md:space-x-6 text-gray-700 font-medium md:items-center items-start">
           {navigationItems.map(({ name, path }, index) => {
-            const isLastItem = index === navigationItems.length - 1;
-            const isOddCount = navigationItems.length % 2 === 1;
-            
             return (
               <Link 
                 key={path}
-                className={`text-lg md:text-xl hover:scale-110 transition-all duration-300 ${
-                  isLastItem && isOddCount 
-                    ? 'text-center col-span-2' 
-                    : index % 2 === 0 
-                      ? 'text-left mr-2' 
-                      : 'text-right ml-2'
-                }`} 
+                className="text-lg md:text-xl hover:scale-110 transition-all duration-300 mb-2 md:mb-0"
                 href={path}
               >
                 {name}
@@ -44,9 +35,11 @@ export default function Footer() {
           })}
         </nav>
 
-        <a className="md:hidden pt-8 pb-4 text-gray-700">Sosyal Medyada Biz</a>
+        <a className="md:hidden pt-8 pb-4 text-gray-700 w-full text-center">Sosyal Medyada Biz</a>
 
-        <SocialMediaIcons className="text-2xl" iconSize="text-2xl" textColor="text-black" />
+        <div className="w-full md:w-auto flex justify-center md:justify-start">
+          <SocialMediaIcons className="text-2xl" iconSize="text-2xl" textColor="text-black" />
+        </div>
       </div>
 
       {/* Sadece mobilde gözükecek copyright satırı */}
