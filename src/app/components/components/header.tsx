@@ -8,10 +8,12 @@ import { usePathname } from "next/navigation";
 import SocialMediaIcons from './SocialMediaIcons';
 import { navigationItems, contactInfo } from '@/app/data/navigation';
 import { FaWhatsapp } from 'react-icons/fa6';
+import { createPortal } from "react-dom";
 
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showMobileHeader, setShowMobileHeader] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -38,6 +40,32 @@ export default function Header() {
       document.documentElement.style.overflow = '';
       document.documentElement.style.touchAction = '';
     };
+  }, [isMenuOpen]);
+
+  // Mobilde scroll yönüne göre header göster/gizle
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let lastY = window.scrollY;
+    const threshold = 40;
+    const handleScroll = () => {
+      if (isMenuOpen) return;
+      const currentY = window.scrollY;
+      let nextShow;
+      if (currentY <= threshold) {
+        nextShow = true;
+      } else if (currentY < lastY) {
+        nextShow = true;
+      } else if (currentY > lastY) {
+        nextShow = false;
+      }
+      if (typeof nextShow !== 'undefined') {
+        setShowMobileHeader(nextShow);
+        console.log('scroll', { lastY, currentY, nextShow });
+      }
+      lastY = currentY;
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [isMenuOpen]);
 
   return (
@@ -101,17 +129,17 @@ export default function Header() {
       </div>
     </header>
 
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg shadow-black/20 md:hidden ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+    <header className={`fixed top-0 left-0 right-0 z-[9999] bg-white shadow-lg shadow-black/20 md:hidden transition-transform duration-300 h-16 ${showMobileHeader ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex justify-between items-center py-4 h-full">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
               <Image 
                 src="/logo.png" 
                 alt="Logo"
-                width={10}
-                height={10}
+                width={40}
+                height={40}
                 className="h-10 w-10 "
               />
             </Link>
@@ -134,15 +162,15 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="fixed min-h-screen inset-0 z-50 bg-white flex flex-col h-full w-full mb-10 md:hidden">
+      {isMenuOpen && typeof window !== "undefined" && createPortal(
+        <div className="fixed min-h-screen inset-0 z-[9999] bg-white flex flex-col h-full w-full mb-10 md:hidden">
           <div className="flex flex-row justify-between items-center py-4 px-4">
             <Link href="/">
               <Image 
                 src="/logo.png" 
                 alt="Logo"
-                width={10}
-                height={10}
+                width={40}
+                height={40}
                 className="h-10 w-10"
               />
             </Link>
@@ -179,7 +207,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
     </ >

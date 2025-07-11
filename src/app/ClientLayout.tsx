@@ -65,7 +65,7 @@ export default function ClientLayout({
         </div>
       )}
       {/* Diğer headerlar */}
-      <div className={`w-full z-50 transition-transform duration-300 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
+      <div className="w-full z-50">
         <div className="absolute w-full z-40">
           <Header />
         </div>

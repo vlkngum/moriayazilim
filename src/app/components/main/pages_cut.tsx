@@ -101,7 +101,7 @@ export default function Portfolio() {
                  <h1 className="lg:text-xl md:text-lg sm:text-base text-base self-center text-center mb-4 sm:self-start sm:text-left">{page.description}</h1>
                  <a href={page.href} className="flex w-full justify-center sm:justify-start">
                    <button
-                     className="flex w-full max-w-xs sm:w-auto bg-blue-700 text-white rounded-md hover:bg-blue-800 transition shadow-sm shadow-gray-700 text-lg sm:text-xl px-6 py-2 mt-0 self-center sm:self-start"
+                     className="flex w-full max-w-xs sm:w-auto bg-blue-700 text-white rounded-md hover:bg-blue-800 transition shadow-sm shadow-gray-700 text-lg sm:text-xl px-6 py-2 mt-0 self-center sm:self-start justify-center items-center"
                    >
                      {page.buttonText} <span className="ml-2 flex items-center text-md">
                       <FiArrowRight />
