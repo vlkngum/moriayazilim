@@ -26,16 +26,16 @@ export default function PricingCards() {
       features: [
         "Web sitesi tasarımı",
         "Responsive tasarım",
-        "SEO optimizasyonu",
-        "İletişim formu",
-        "Sosyal medya entegrasyonu",
-        "Blog sistemi",
+        "4 Sayfa sayısı",
+        "2 Revize",
+        "Hosting, Domain kurulum desteği",
+        "Google Search Console entegrasyonu desteği",
         "E-ticaret entegrasyonu",
         "Admin paneli",
-        "Analytics entegrasyonu",
-        "7/24 destek"
+        "7/24 destek",
+        "Blog sistemi"
       ],
-      included: [true, true, true, true, true, false, false, false, false, false],
+      included: [true, true, true, true, true, true, false, false, false],
     },
     {
       name: "Orta Plan",
@@ -45,14 +45,14 @@ export default function PricingCards() {
       features: [
         "Web sitesi tasarımı",
         "Responsive tasarım",
-        "SEO optimizasyonu",
-        "İletişim formu",
-        "Sosyal medya entegrasyonu",
+        "Sınırsız sayfa",
         "Blog sistemi",
-        "E-ticaret entegrasyonu",
+        "Sınırsız revize",
         "Admin paneli",
-        "Analytics entegrasyonu",
-        "7/24 destek"
+        "Hosting, Domain kurulum desteği",
+        "Google Search Console entegrasyonu desteği",
+        "7/24 destek",
+        "E-ticaret entegrasyonu"
       ],
       included: [true, true, true, true, true, true, true, true, false, false],
     },
@@ -64,14 +64,14 @@ export default function PricingCards() {
       features: [
         "Web sitesi tasarımı",
         "Responsive tasarım",
-        "SEO optimizasyonu",
-        "İletişim formu",
-        "Sosyal medya entegrasyonu",
-        "Blog sistemi",
-        "E-ticaret entegrasyonu",
+        "Sınırsız sayfa",
+        "Blog sistemi",      
+        "Sınırsız revize",
         "Admin paneli",
-        "Analytics entegrasyonu",
-        "7/24 destek"
+        "Hosting, Domain kurulum desteği",
+        "Google Search Console entegrasyonu desteği",
+        "7/24 destek",
+        "E-ticaret entegrasyonu"
       ],
       included: [true, true, true, true, true, true, true, true, true, true],
     },
@@ -130,7 +130,7 @@ export default function PricingCards() {
               viewport={{ once: true }}
               className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg"
             >
-              Önerilen
+              En Popüler
             </motion.div>
           )}
           

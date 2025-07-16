@@ -21,7 +21,7 @@ export default function Footer() {
           <span className="ml-3 text-xl font-medium md:hidden">Moria Yazılım</span>
         </div>
 
-        <nav className="w-full md:w-auto flex flex-col md:flex md:flex-row md:space-x-6 text-gray-700 font-medium md:items-center items-start">
+        <nav className="w-full md:w-auto flex flex-col xl:absolute xl:left-1/2 xl:-translate-x-1/2 xl:justify-center md:flex md:flex-row md:space-x-6 text-gray-700 font-medium md:items-center items-start">
           {navigationItems.map(({ name, path }) => {
             return (
               <Link 

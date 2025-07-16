@@ -107,7 +107,9 @@ export default function Portfolio() {
                 className="flex flex-col justify-between lg:p-10 md:p-10 sm:p-10 w-full lg:w-1/2 md:w-full sm:w-full lg:h-full md:h-1/2 sm:h-1/2 items-center"
               >
                 <div className="flex-col justify-between w-full">
-                 <h1 className="lg:text-8xl md:text-6xl sm:text-4xl text-3xl self-center font-bold mb-2 text-center sm:self-start sm:text-left">{page.title}</h1>
+                 <h1 className="lg:text-7xl md:text-3xl sm:text-2xl text-xl leading-tight font-bold mb-2 text-center sm:self-start sm:text-left break-words">
+  {page.title}
+</h1>
                  <h1 className="lg:text-xl md:text-lg sm:text-base text-base self-center text-center mb-4 sm:self-start sm:text-left">{page.description}</h1>
                  <a href={page.href} className="flex w-full justify-center sm:justify-start">
                    <button

@@ -15,11 +15,11 @@ export const navigationItems: NavigationItem[] = [
     path: "/about",
     description: "Şirket hakkında bilgiler"
   },
-  {
-    name: "Portfolyomuz",
-    path: "/portfolio",
-    description: "Tamamlanan projeler"
-  },
+  // {
+  //   name: "Portfolyomuz",
+  //   path: "/portfolio",
+  //   description: "Tamamlanan projeler"
+  // },
   {
     name: "Fiyatlandırma",
     path: "/pricing",
