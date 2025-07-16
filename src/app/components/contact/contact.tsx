@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
-import { FaInstagram, FaYoutube, FaXTwitter, FaWhatsapp,FaLinkedin } from 'react-icons/fa6';
+import { FaInstagram } from 'react-icons/fa6';
 
 // Contact information data
 const contactDetails = [

@@ -7,7 +7,6 @@ import { FaBars, FaTimes, FaEnvelope } from 'react-icons/fa';
 import { usePathname } from "next/navigation";
 import SocialMediaIcons from './SocialMediaIcons';
 import { navigationItems, contactInfo } from '@/app/data/navigation';
-import { FaWhatsapp } from 'react-icons/fa6';
 import { createPortal } from "react-dom";
 
 
@@ -73,15 +72,7 @@ export default function Header() {
     <header className="px-3 py-2 md:flex hidden flex-col"> 
       <div className="flex justify-between items-center">
         <div className="flex space-x-3">
-          <a
-            href="https://wa.me/905519667836"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-1 text-xs text-white hover:underline"
-          >
-            <FaWhatsapp />
-            <span>{contactInfo.phone}</span>
-          </a>
+          
           <a
             href="mailto:iletisim@moriayazilim.com"
             className="flex items-center space-x-1 text-xs text-white hover:underline"
@@ -194,17 +185,14 @@ export default function Header() {
           <div className="mt-auto w-full">
             <hr className="mb-2 border-gray-300" />
             <div className="flex flex-col gap-2 px-6 pb-4 mb-11">
-              <div className="flex items-center gap-2 text-base justify-between">
-                <div className='flex flex-row items-center gap-2'>
-                  <FaWhatsapp />
-                  <span>{contactInfo.phone}</span>
-                </div>
+              <div className="flex items-center text-base justify-start gap-4">
                 <SocialMediaIcons className="text-xl" iconSize="text-xl" exclude={['FaWhatsapp','MdEmail']} />
-              </div>
-              <div className="flex items-center gap-2 text-base">
-                <FaEnvelope />
+                <a href="mailto:iletisim@moriayazilim.com" className="flex items-center gap-2 text-base">
+                  <FaEnvelope />
                 <span>{contactInfo.email}</span>
+              </a>
               </div>
+             
             </div>
           </div>
         </div>,
