@@ -10,28 +10,28 @@ export default function TeamSection() {
       role: "Arayüz Tasarımcısı",
       image: "/logo.png",
       description: "Kullanıcı dostu, estetik ve işlevsel arayüzler oluşturarak dijital deneyimi en üst seviyeye taşıyor.",
-      href: "mailto:yahya@moria.com",
+      href: "mailto:yahya@moriayazilim.com",
     },
     {
       name: "Volkan Gümüş",
-      role: "Frontend Geliştirici",
+      role: "Full-Stack Developer",
       image: "/logo.png",
       description: "Tasarımı modern web teknolojileriyle hayata geçirerek tüm cihazlarda sorunsuz çalışan arayüzler sunuyor.",
-      href: "mailto:volkan@moria.com",
+      href: "mailto:volkan@moriayazilim.com",
     },
     {
       name: "Efe Mert Cabaoğlu",
       role: "Backend Geliştirici",
       image: "/logo.png",
       description: "Veri güvenliği ve sistem performansını ön planda tutarak güçlü ve ölçeklenebilir altyapılar geliştiriyor.",
-      href: "mailto:efe@moria.com",
+      href: "mailto:efe@moriayazilim.com",
     },
     {
       name: "Salim Öztürk",
       role: "Grafik Tasarımcı",
       image: "/logo.png",
       description: "Marka kimliğini yansıtan yaratıcı görseller ve özgün tasarımlar üreterek projelere estetik değer katıyor.",
-      href: "mailto:salim@moria.com",
+      href: "mailto:salim@moriayazilim.com",
     }
   ];
 

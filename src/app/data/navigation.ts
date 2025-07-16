@@ -41,7 +41,7 @@ export const socialMediaLinks = [
   },
   {
     name: "E-Posta",
-    url: "mailto:moriayazilim.com",
+    url: "mailto:iletisim@moriayazilim.com",
     icon: "MdEmail",
     color: "hover:text-black"
   },
