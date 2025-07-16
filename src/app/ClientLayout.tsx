@@ -55,8 +55,8 @@ export default function ClientLayout({
 
   return (
     <>
-      {/* Sticky beyaz header - tüm sayfalarda */}
-      {showWhiteHeader && (
+      {/* Sticky beyaz header - sadece anasayfa için */}
+      {pathname === '/' && showWhiteHeader && (
         <div
           className="fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-500 ease-out transform animate-fade-in-custom"
         >

@@ -17,35 +17,11 @@ const contactDetails = [
     href: "mailto:iletisim@moriayazilim.com"
   },
   {
-    icon: FaLinkedin,
-    title: "LinkedIn",
-    value: "linkedin.com/company/moriayazilim",
-    href: "https://www.linkedin.com/company/moriayazilim"
-  },
-  {
     icon: FaInstagram,
     title: "Instagram",
     value: "@moriayazilim",
     href: "https://www.instagram.com/moriayazilim"
   },
-  {
-    icon: FaWhatsapp,
-    title: "WhatsApp",
-    value: "+90 555 555 55 55",
-    href: "https://wa.me/905555555555"
-  },
-  {
-    icon: FaYoutube,
-    title: "YouTube",
-    value: "@moriayazilim",
-    href: "https://www.youtube.com/@moriayazilim"
-  },
-  {
-    icon: FaXTwitter,
-    title: "X",
-    value: "@moriayazilim",
-    href: "https://twitter.com/moriayazilim"
-  }
 ];
 
 export default function Contact() {

@@ -34,12 +34,6 @@ export const navigationItems: NavigationItem[] = [
 
 export const socialMediaLinks = [
   {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/company/moriayazilim",
-    icon: "FaLinkedin",
-    color: "hover:text-blue-500"
-  },
-  {
     name: "Instagram",
     url: "https://www.instagram.com/moriayazilim",
     icon: "FaInstagram",
@@ -47,27 +41,9 @@ export const socialMediaLinks = [
   },
   {
     name: "E-Posta",
-    url: "iletisim@moriayazilim.com",
+    url: "mailto:moriayazilim.com",
     icon: "MdEmail",
     color: "hover:text-black"
-  },
-  {
-    name: "YouTube",
-    url: "https://www.youtube.com/@moriayazilim",
-    icon: "FaYoutube",
-    color: "hover:text-red-600"
-  },
-  {
-    name: "X (Twitter)",
-    url: "https://twitter.com/moriayazilim",
-    icon: "FaXTwitter",
-    color: "hover:text-black"
-  },
-  {
-    name: "WhatsApp",
-    url: "https://wa.me/905555555555",
-    icon: "FaWhatsapp",
-    color: "hover:text-green-600"
   },
   
 ];
