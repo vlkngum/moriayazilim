@@ -13,8 +13,8 @@ export default function Footer() {
             <Image 
               src="/logo.png" 
               alt="Logo"
-              width={12}
-              height={12}
+              width={48}
+              height={48}
               className="h-12 w-12 hover:scale-110 transition-all duration-300"
             />
           </Link>

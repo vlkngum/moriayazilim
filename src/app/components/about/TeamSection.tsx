@@ -6,32 +6,32 @@ import { motion } from 'framer-motion';
 export default function TeamSection() {
   const teamMembers = [
     {
-      name: "Volkan Gümüş",
-      role: "Kurucu & CEO",
-      image: "/team/volkan.png",
-      description: "10+ yıllık sektör deneyimi ile projelerin başarıyla tamamlanmasını sağlıyor.",
-      href: "https://www.linkedin.com/in/volkan-g%C3%BCm%C3%BC%C5%9F-987617304/",
-    },
-    {
       name: "Yahya Sevinç",
-      role: "Teknik Direktör",
-      image: "/team/yahya.png",
-      description: "Teknik ekibin lideri olarak projelerin kalitesini garanti ediyor.",
+      role: "Arayüz Tasarımcısı",
+      image: "/logo.png",
+      description: "Kullanıcı dostu, estetik ve işlevsel arayüzler oluşturarak dijital deneyimi en üst seviyeye taşıyor.",
       href: "https://www.linkedin.com/in/yahya-emin-sevin%C3%A7-00280625a/",
     },
     {
+      name: "Volkan Gümüş",
+      role: "Frontend Geliştirici",
+      image: "/logo.png",
+      description: "Tasarımı modern web teknolojileriyle hayata geçirerek tüm cihazlarda sorunsuz çalışan arayüzler sunuyor.",
+      href: "https://www.linkedin.com/in/volkan-g%C3%BCm%C3%BC%C5%9F-987617304/",
+    },
+    {
       name: "Efe Mert Cabaoğlu",
-      role: "Proje Yöneticisi",
-      image: "/team/efe.png",
-      description: "Projelerin zamanında ve bütçe dahilinde tamamlanmasını sağlıyor.",
+      role: "Backend Geliştirici",
+      image: "/logo.png",
+      description: "Veri güvenliği ve sistem performansını ön planda tutarak güçlü ve ölçeklenebilir altyapılar geliştiriyor.",
       href: "https://www.linkedin.com/in/efe-mert-cabao%C4%9Flu-a72585303/",
     },
     {
-      name: "SİKKO",
-      role: "",
-      image: "/team/sikko.png",
-      description: "",
-      href: "https://www.linkedin.com/in/efe-mert-cabao%C4%9Flu-a72585303/",
+      name: "Salim Öztürk",
+      role: "Grafik Tasarımcı",
+      image: "/logo.png",
+      description: "Marka kimliğini yansıtan yaratıcı görseller ve özgün tasarımlar üreterek projelere estetik değer katıyor.",
+      href: "/about",
     }
   ];
 
@@ -81,7 +81,7 @@ export default function TeamSection() {
                   className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
                 >
                 <motion.div 
-                  className="relative h-80"
+                  className="relative h-80 group"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -89,7 +89,7 @@ export default function TeamSection() {
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 shadow-none group-hover:shadow-xl transition-all duration-300"
                   />
                 </motion.div>
                 <motion.div 
@@ -100,7 +100,7 @@ export default function TeamSection() {
                   viewport={{ once: true }}
                 >
                   <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-fuchsia-800 font-semibold mb-4">{member.role}</p>
+                  <p className="text-[#1c398e] font-semibold mb-4">{member.role}</p>
                   <p className="text-gray-600">{member.description}</p>
                 </motion.div>
               </motion.div>
