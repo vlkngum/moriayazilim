@@ -6,19 +6,20 @@ import { motion } from 'framer-motion';
 export default function TeamSection() {
   const teamMembers = [
     {
-      name: "Yahya Sevinç",
-      role: "Arayüz Tasarımcısı",
-      image: "/logo.png",
-      description: "Kullanıcı dostu, estetik ve işlevsel arayüzler oluşturarak dijital deneyimi en üst seviyeye taşıyor.",
-      href: "mailto:yahya@moriayazilim.com",
-    },
-    {
       name: "Volkan Gümüş",
       role: "Full-Stack Developer",
       image: "/logo.png",
       description: "Tasarımı modern web teknolojileriyle hayata geçirerek tüm cihazlarda sorunsuz çalışan arayüzler sunuyor.",
       href: "mailto:volkan@moriayazilim.com",
     },
+    {
+      name: "Yahya Sevinç",
+      role: "Arayüz Tasarımcısı",
+      image: "/logo.png",
+      description: "Kullanıcı dostu, estetik ve işlevsel arayüzler oluşturarak dijital deneyimi en üst seviyeye taşıyor.",
+      href: "mailto:yahya@moriayazilim.com",
+    },
+    
     {
       name: "Efe Mert Cabaoğlu",
       role: "Backend Geliştirici",
