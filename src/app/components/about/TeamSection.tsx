@@ -61,7 +61,7 @@ export default function TeamSection() {
           Ekibimiz
         </motion.h2>
         
-        <div className="space-y-12 px-[20%]">
+        <div className="space-y-12 px-[10%] md:px-[20%]">
           {groupedMembers.map((group, groupIndex) => (
             <motion.div
               key={groupIndex}
