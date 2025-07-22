@@ -13,8 +13,8 @@ export default function TeamSection() {
       href: "mailto:volkan@moriayazilim.com",
     },
     {
-      name: "Yahya Sevinç",
-      role: "Arayüz Tasarımcısı",
+      name: "Yahya Emin Sevinç",
+      role: "Arayüz Tasarımcısı & Frontend Geliştirici",
       image: "/logo.png",
       description: "Kullanıcı dostu, estetik ve işlevsel arayüzler oluşturarak dijital deneyimi en üst seviyeye taşıyor.",
       href: "mailto:yahya@moriayazilim.com",
