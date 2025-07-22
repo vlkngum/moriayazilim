@@ -26,7 +26,7 @@ export default function IndexPage() {
 
 
         <ScrollVelocity
-          texts={['VOLKAN GUMUS YAHYA SEVINC', 'SALIM OZTURK EFE CABAOGLU']} 
+          texts={['VOLKAN GUMUS YAHYA SEVINC', 'SALIM OZTURK EFE CABAOGLU MERİC KIZILSU']} 
           velocity={100} 
           className="custom-scroll-text"
         />
