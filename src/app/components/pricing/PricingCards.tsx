@@ -39,7 +39,7 @@ export default function PricingCards() {
     },
     {
       name: "Orta Plan",
-      price: "10000 TL",
+      price: "16000 TL",
       description: "Orta ölçekli işletmeler için ideal paket.",
       recommended: true,
       features: [
