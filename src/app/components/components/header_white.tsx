@@ -41,11 +41,11 @@ const HeaderWhite: React.FC<HeaderWhiteProps> = ({ setShowWhiteHeader }) => {
   }, [menuOpen]);
 
   return (
-    <header className="justify-center items-center py-4 md:py-6 bg-white/80 fixed top-0 left-0 w-full z-50 shadow-sm">
+    <header className="justify-center items-center py-4 md:py-6 bg-white/90 fixed top-0 left-0 w-full z-50 shadow-sm">
       <div className="flex justify-between items-center px-4 md:px-20">
         <div className="text-2xl md:text-4xl font-bold ">
           <Link href="/">
-            <Image src="/logo.png" alt="Logo" width={50} height={50} className="h-10 md:h-14 w-10 md:w-14 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo.png" alt="Logo" width={48} height={48} className=" h-14 w-14 hover:scale-110 transition-all duration-300" />
           </Link>
         </div>
         {/* Hamburger icon (mobile) */}
