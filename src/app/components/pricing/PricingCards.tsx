@@ -20,7 +20,7 @@ export default function PricingCards() {
   const plans: Plan[] = [
     {
       name: "Basit Plan",
-      price: "4000 TL",
+      price: "5000 TL",
       description: "Düşük bütçe için önerilen paketimizdir.",
       recommended: false,
       features: [
@@ -39,7 +39,7 @@ export default function PricingCards() {
     },
     {
       name: "Orta Plan",
-      price: "8000 TL",
+      price: "16000 TL",
       description: "Orta ölçekli işletmeler için ideal paket.",
       recommended: true,
       features: [
@@ -58,7 +58,7 @@ export default function PricingCards() {
     },
     {
       name: "Yüksek Plan",
-      price: "12500 TL",
+      price: "25000 TL",
       description: "Büyük ölçekli projeler için kapsamlı çözüm.",
       recommended: false,
       features: [
