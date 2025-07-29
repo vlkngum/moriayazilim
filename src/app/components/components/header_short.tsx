@@ -11,11 +11,18 @@ export default function Header_Short() {
     "/about": "Hakkımızda",
     "/contact": "İletişim",
     "/portfolio": "Portfolyomuz",
-    "/blogs": "Haberlerimiz",
+    "/blog": "Blog",
     "/pricing": "Fiyatlandırma",
   };
 
-  const title = pageTitles[pathname];
+      const isBlogSlug = pathname.startsWith('/blog/') && pathname !== '/blogs';
+      
+      let title;
+      if (isBlogSlug) {
+        title = "Blog";
+      } else {
+        title = pageTitles[pathname];
+      }
 
   
     return (

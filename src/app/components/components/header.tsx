@@ -88,7 +88,7 @@ export default function Header() {
       <div className="flex justify-between items-center mt-6 px-20"> 
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <Image src="/logo_white.png" alt="Logo" width={64} height={64} className="h-14 hover:scale-110 transition-all duration-300" />
+            <Image src="/logo_white.png" alt="Logo" width={64} height={64} className="h-14 w-14 hover:scale-110 transition-all duration-300" />
           </Link>
         </div>
  

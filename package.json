@@ -10,8 +10,14 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.23.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@prisma/client": "^6.12.0",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.18.2",
+    "keen-slider": "^6.8.6",
+    "lucide-react": "^0.532.0",
     "motion": "^12.10.4",
     "motion-react": "^0.15.0-alpha.1",
     "next": "15.3.2",
@@ -28,6 +34,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "prisma": "^6.12.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

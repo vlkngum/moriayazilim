@@ -21,6 +21,11 @@ export const navigationItems: NavigationItem[] = [
   //   description: "Tamamlanan projeler"
   // },
   {
+    name: "Blog",
+    path: "/blog",
+    description: "Bloglarımız"
+  },
+  {
     name: "Fiyatlandırma",
     path: "/pricing",
     description: "Paket fiyatları"
@@ -44,6 +49,12 @@ export const socialMediaLinks = [
     url: "mailto:iletisim@moriayazilim.com",
     icon: "MdEmail",
     color: "hover:text-black"
+  },
+  {
+    name: "Linkedin",
+    url: "https://www.linkedin.com/company/moria-yaz%C4%B1l%C4%B1m",
+    icon: "FaLinkedin",
+    color: "hover:text-blue-500"
   },
   
 ];
