@@ -11,6 +11,7 @@ module.exports = {
     try {
       const res = await axios.get('https://moriayazilim.com/api/get-blog');
       const posts = res.data;
+      console.log('Blog post sayısı:', posts.length); 
 
       return posts.map(post => ({
         loc: `/blog/${post.id}`,
