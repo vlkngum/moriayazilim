@@ -95,7 +95,7 @@ const DreamSection: React.FC = () => {
       { value: "5+", label: "Yıllık Tecrübe" },
       { value: "20+", label: "Tamamlanan Proje" },
       { value: "10+", label: "Mutlu Müşteri" },
-      { value: "4", label: "Kişilik Ekip" },
+      { value: "5", label: "Kişilik Ekip" },
     ]
   };
 

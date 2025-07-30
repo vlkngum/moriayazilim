@@ -50,12 +50,19 @@ export default function Portfolio() {
       image: "/our_work.jpg",
       href:'/about'
     },
+    // {
+    //   title: "Portfolyomuz",
+    //   description: "Her biri özenle planlanmış projelerimiz, kullanıcı deneyimi ve estetiği ön planda tutarak geliştirildi. Web'den mobil uygulamalara kadar geniş bir yelpazede, yenilikçi ve güvenilir çözümler sunuyoruz.",
+    //   buttonText: "Çalışmalarımız",
+    //   image: "/calismalarimiz.jpg",
+    //   href:'/portfolio'
+    // },
     {
-      title: "Portfolyomuz",
-      description: "Her biri özenle planlanmış projelerimiz, kullanıcı deneyimi ve estetiği ön planda tutarak geliştirildi. Web'den mobil uygulamalara kadar geniş bir yelpazede, yenilikçi ve güvenilir çözümler sunuyoruz.",
-      buttonText: "Çalışmalarımız",
-      image: "/calismalarimiz.jpg",
-      href:'/portfolio'
+      title: "Bloglarımız",
+      description: "Web tasarım, SEO, yazılım geliştirme ve kullanıcı deneyimi üzerine dopdolu içerikler şimdi blog sayfamızda. Takipte kal, dijital dünyayı kaçırma!",
+      buttonText: "Blogları Keşfet",
+      image: "/blogs.jpg",
+      href:'/blog'
     },
     {
       title: "İletişim",
