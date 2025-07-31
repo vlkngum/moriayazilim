@@ -184,8 +184,8 @@ export default function Header() {
           </nav>
           <div className="mt-auto w-full">
             <hr className="mb-2 border-gray-300" />
-            <div className="flex flex-col gap-2 px-6 pb-4 mb-11">
-              <div className="flex items-center text-base justify-start gap-4">
+            <div className="flex flex-col gap-2 px-6 pb-4 mb-11 mt-4">
+              <div className="flex flex-col items-start text-base gap-4">
                 <SocialMediaIcons className="text-xl" iconSize="text-xl" exclude={['FaWhatsapp','MdEmail']} />
                 <a href="mailto:iletisim@moriayazilim.com" className="flex items-center gap-2 text-base">
                   <FaEnvelope />
