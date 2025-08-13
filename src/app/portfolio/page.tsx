@@ -27,6 +27,14 @@ const portfolioData: Portfolio[] = [
     description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren Entekas için kurumsal web tasarımı.",
     category: "Endüstriyel Çözümler",
     href: "https://entekas.com"
+  },
+  {
+    id: "2",
+    image: "/logo.png",
+    name: "Kuaför Demo",
+    description: "Modern ve kullanıcı dostu bir kuaför web sitesi tasarım konsepti. Renk paleti, tipografi ve düzen tamamen kullanıcı deneyimini ön planda tutacak şekilde oluşturuldu. Bu proje, Moria Yazılım’ın sektöre özel web tasarım yetkinliklerini sergilemek amacıyla hazırlanmış bir demo çalışmadır.",
+    category: "Demo Projeler",
+    href: "https://kuafor-moria-demo.vercel.app/"
   }
 ];
 
@@ -35,6 +43,10 @@ const portfolioCategories: Category[] = [
   {
     id: "1",
     name: "Endüstriyel Çözümler"
+  },
+  {
+    id: "2",
+    name: "Demo Projeler"
   }
 ];
 
