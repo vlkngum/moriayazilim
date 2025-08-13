@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Moria Yazılım",
-  description: "Next.js Proje",
+  description: "Moria Yazılım Web Ajansı",
   icons: "/favicon.ico",  
 };
 
