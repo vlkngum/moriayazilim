@@ -23,13 +23,21 @@ const portfolioData: Portfolio[] = [
   {
     id: "1",
     image: "/mockup.jpg",
-    name: "Entekas",
-    description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren Entekas için kurumsal web tasarımı.",
-    category: "Endüstriyel Çözümler",
-    href: "https://entekas.com"
+    name: "Moria Entegrasyon",
+    description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren siteler için kurumsal web tasarımı.",
+    category: "Demo Projeler",
+    href: "https://entegrasyon-moria-demo.vercel.app/"
   },
   {
     id: "2",
+    image: "/mockup.jpg",
+    name: "Entekas",
+    description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren siteler için kurumsal web tasarımı.",
+    category: "Demo Projeler",
+    href: "https://customer-entegrasyon-moria-demo-inn.vercel.app/login"
+  },
+  {
+    id: "3",
     image: "/logo.png",
     name: "Kuaför Demo",
     description: "Modern ve kullanıcı dostu bir kuaför web sitesi tasarım konsepti. Renk paleti, tipografi ve düzen tamamen kullanıcı deneyimini ön planda tutacak şekilde oluşturuldu. Bu proje, Moria Yazılım’ın sektöre özel web tasarım yetkinliklerini sergilemek amacıyla hazırlanmış bir demo çalışmadır.",
@@ -42,10 +50,6 @@ const portfolioData: Portfolio[] = [
 const portfolioCategories: Category[] = [
   {
     id: "1",
-    name: "Endüstriyel Çözümler"
-  },
-  {
-    id: "2",
     name: "Demo Projeler"
   }
 ];
