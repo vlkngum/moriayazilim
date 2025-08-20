@@ -24,14 +24,14 @@ const portfolioData: Portfolio[] = [
     id: "1",
     image: "/mockup.jpg",
     name: "Moria Entegrasyon",
-    description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren siteler için kurumsal web tasarımı.",
+    description: "Trendyol, Hepsiburada, Amazon ve n11 gibi pazaryerlerindeki tüm e-ticaret operasyonlarınızı tek panelden yönetin. Kod bilgisine gerek kalmadan dakikalar içinde kurulum yapabilir, stok ve fiyat güncellemelerini anında senkronize edebilir, sipariş ve faturalandırma süreçlerinizi zahmetsizce kontrol altına alabilirsiniz.",
     category: "Demo Projeler",
     href: "https://entegrasyon-moria-demo.vercel.app/"
   },
   {
     id: "2",
     image: "/mockup.jpg",
-    name: "Entekas",
+    name: "Moria Entegrasyon Customer",
     description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren siteler için kurumsal web tasarımı.",
     category: "Demo Projeler",
     href: "https://customer-entegrasyon-moria-demo-inn.vercel.app/login"
