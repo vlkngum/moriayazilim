@@ -43,6 +43,14 @@ const portfolioData: Portfolio[] = [
     description: "Modern ve kullanıcı dostu bir kuaför web sitesi tasarım konsepti. Renk paleti, tipografi ve düzen tamamen kullanıcı deneyimini ön planda tutacak şekilde oluşturuldu. Bu proje, Moria Yazılım’ın sektöre özel web tasarım yetkinliklerini sergilemek amacıyla hazırlanmış bir demo çalışmadır.",
     category: "Demo Projeler",
     href: "https://kuafor-moria-demo.vercel.app/"
+  },
+  {
+    id: "4",
+    image: "/logo.png",
+    name: "Yıltur Turizm",
+    description: "Yıltur Turizm için kurumsal web sitesi tasarımı gerçekleştirdik. Mobil uyumlu, hızlı ve kullanıcı dostu bir altyapı ile firmanın hizmetlerini ve iletişim bilgilerini ziyaretçilere kolayca ulaştıracak şekilde tasarlandı.",
+    category: "Turizm",
+    href: "https://yilturturizm.com/"
   }
 ];
 
