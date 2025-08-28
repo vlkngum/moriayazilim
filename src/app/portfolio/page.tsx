@@ -59,6 +59,10 @@ const portfolioCategories: Category[] = [
   {
     id: "1",
     name: "Demo Projeler"
+  },
+  {
+    id: "2",
+    name: "Turizm"
   }
 ];
 
