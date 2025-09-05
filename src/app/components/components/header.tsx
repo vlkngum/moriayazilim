@@ -75,20 +75,20 @@ export default function Header() {
           
           <a
             href="mailto:iletisim@moriayazilim.com"
-            className="flex items-center space-x-1 text-xs text-white hover:underline"
+            className={`flex items-center space-x-1 text-xs ${pathname=="/" ? "text-black/80" : "text-white" } hover:underline`}
           >
             <FaEnvelope />
             <span>{contactInfo.email}</span>
           </a>
         </div>
 
-        <SocialMediaIcons className="text-xs" iconSize="text-sm" textColor="text-white" exclude={['FaWhatsapp','MdEmail']} />
+        <SocialMediaIcons className="text-xs" iconSize="text-sm" textColor={`${pathname=="/" ? "text-black" : "text-white" }`} exclude={['FaWhatsapp','MdEmail']} />
       </div>
  
       <div className="flex justify-between items-center mt-6 px-20"> 
         <div className="text-4xl font-bold ">
           <Link href="/">
-            <Image src="/logo_white.png" alt="Logo" width={64} height={64} className="h-14 w-14 hover:scale-110 transition-all duration-300" />
+            <Image src={`${pathname=="/" ? "/logo.png" : "/logo_white.png" }`} alt="Logo" width={64} height={64} className="h-14 w-14 hover:scale-110 transition-all duration-300" />
           </Link>
         </div>
  
@@ -101,11 +101,11 @@ export default function Header() {
                 onMouseEnter={() => setHovered(path)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <Link href={path} className="text-white transition-all duration-300 lg:text-2xl md:text-lg">
+                <Link href={path} className={`${pathname=="/" ? "text-black/70" : "text-white" } transition-all duration-300 lg:text-2xl md:text-lg`}>
                   {name}
                 </Link>
                 <span
-                  className={`absolute left-0 bottom-0 w-full h-[2px] bg-white transition-transform duration-500 scale-x-0 
+                  className={`absolute left-0 bottom-0 w-full h-[2px] ${pathname=="/" ? "bg-black/50" : "bg-white" } transition-transform duration-500 scale-x-0 
                   ${hovered === path ? "scale-x-100" : pathname === path && !hovered ? "scale-x-100" : ""}`}
                 />
               </li>

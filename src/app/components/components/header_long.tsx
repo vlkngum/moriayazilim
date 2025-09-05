@@ -1,28 +1,86 @@
+'use client';
+
 import { FiArrowRight } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import React, { useState, useEffect, useMemo } from 'react';
+import SecondMain from "./second";
+import FirstMain from "./first";
+
+interface MousePosition {
+  x: number;
+  y: number;
+}
 
 export default function Header_Short() {
     const router = useRouter();
 
+    const rotatingTexts = useMemo(() => [
+      "modern web siteleriyle geliştiriyoruz",
+      "SEO uyumlu hale getiriyoruz",
+      "hızlı ve güvenli yapıyoruz",
+      "tasarımıyla fark yaratıyoruz",
+      "mobil uyumlu sunuyoruz"
+    ], []);
+    
+
+    const [displayedText, setDisplayedText] = useState('');
+    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+
+    useEffect(() => {
+      setIsVisible(true);
+      const handleMouseMove = (e: MouseEvent): void => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    useEffect(() => {
+      const currentText = rotatingTexts[currentTextIndex];
+  
+      let timeout: NodeJS.Timeout;
+      if (!isDeleting) {
+        if (charIndex < currentText.length) {
+          timeout = setTimeout(() => {
+            setDisplayedText(prev => prev + currentText.charAt(charIndex));
+            setCharIndex(charIndex + 1);
+          }, 75);
+        } else {
+          timeout = setTimeout(() => setIsDeleting(true), 1500);
+        }
+      } else {
+        if (charIndex > 0) {
+          timeout = setTimeout(() => {
+            setDisplayedText(prev => prev.slice(0, -1));
+            setCharIndex(charIndex - 1);
+          }, 50);
+        } else {
+          setIsDeleting(false);
+          setCurrentTextIndex((prev) => (prev + 1) % rotatingTexts.length);
+        }
+      }
+  
+      return () => clearTimeout(timeout);
+    }, [charIndex, isDeleting, currentTextIndex, rotatingTexts]);
+
   return (
-    <div 
-      style={{ backgroundImage: `url('/main.jpg')` }}
-      className="relative w-full h-screen object-cover bg-cover bg-center flex items-center pt-20 md:pt-0"
-    >
-      <div className="flex flex-col justify-center items-center text-center text-white px-2 w-full h-full md:bg-transparent md:w-auto md:h-auto">
-        <h2 className="text-3xl font-extrabold leading-tight mb-4 md:text-6xl md:font-semibold md:px-[10%] px-[2%] md:mb-10" style={{textShadow: '0 2px 8px rgba(0,0,0,0.7)'}}>
-        Hayalindeki projeyi birlikte hayata geçirelim. Moria Yazılım, güçlü ve yenilikçi çözümlerle her zaman yanında!
-        </h2>
-        <button
-          className="px-10 py-2 bg-blue-700 cursor-pointer text-white rounded-md hover:bg-blue-800 transition text-2xl shadow-md shadow-black flex items-center justify-center  md:mt-4 md:w-auto md:max-w-none"
-          onClick={() => router.push('/pricing')}
-        >
-          Teklif Al
-          <span className="ml-2 flex items-center text-md">
-            <FiArrowRight />
-          </span>
-        </button> 
+    <div className="relative z-10 container mx-auto md:pt-[150px] pt-[80px] py-16 h-screen">
+        <FirstMain isVisible={isVisible}/> 
+        <SecondMain isVisible={isVisible} displayedText={displayedText}/>
+        
+        <div className="relative z-10 container mx-auto px-4 py-16"> 
+          {/* <DynamicImage photo={'/photo.jpg'} />  */}
+        </div>
+
+        <div className={`absolute bottom-0 left-1/2 aspect-square -translate-x-1/2 w-full md:w-[1400px] h-[500px] bg-gradient-to-r from-[#60a5fa] via-[#2563eb] to-[#1e40af] rounded-full blur-[120px] opacity-30 pointer-events-none shadow-2xl`} />
+        <div className={`md:flex hidden absolute top-0 right-0 aspect-square -translate-x-1 w-full md:w-[400px] h-[200px] bg-gradient-to-r from-[#60a5fa] via-[#2563eb] to-[#1e40af] rounded-full blur-[120px] opacity-40 pointer-events-none shadow-2xl`} />
+        <div className={`absolute top-0 left-0 aspect-square -translate-x-1/2 w-full md:w-[400px] h-[200px] bg-gradient-to-r from-[#60a5fa] via-[#2563eb] to-[#1e40af] rounded-full blur-[120px] opacity-40 pointer-events-none shadow-2xl`} />
+     
       </div>
-    </div>
   );
 }
