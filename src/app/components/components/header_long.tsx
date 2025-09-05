@@ -1,7 +1,5 @@
 'use client';
 
-import { FiArrowRight } from "react-icons/fi";
-import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useMemo } from 'react';
 import SecondMain from "./second";
 import FirstMain from "./first";
@@ -12,7 +10,6 @@ interface MousePosition {
 }
 
 export default function Header_Short() {
-    const router = useRouter();
 
     const rotatingTexts = useMemo(() => [
       "modern web siteleriyle geliştiriyoruz",
@@ -35,6 +32,7 @@ export default function Header_Short() {
       setIsVisible(true);
       const handleMouseMove = (e: MouseEvent): void => {
         setMousePosition({ x: e.clientX, y: e.clientY });
+        console.log(mousePosition);
       };
       window.addEventListener('mousemove', handleMouseMove);
       return () => window.removeEventListener('mousemove', handleMouseMove);
