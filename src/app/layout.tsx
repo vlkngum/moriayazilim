@@ -9,9 +9,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Moria Yazılım",
-  description: "Moria Yazılım Web Ajansı",
+  description: "Moria Yazılım, profesyonel web tasarım, yazılım geliştirme, e-ticaret çözümleri, SEO hizmetleri ve dijital pazarlama alanlarında yenilikçi çözümler sunan web ajansı.",
   icons: "/favicon.ico",  
 };
+
 
 export default function RootLayout({
   children,

@@ -30,6 +30,8 @@ export default function IndexPage() {
           velocity={100} 
           className="custom-scroll-text"
         />
+
+<meta name="google-adsense-account" content="ca-pub-3295280319586761"/>
   
     </div>
  
