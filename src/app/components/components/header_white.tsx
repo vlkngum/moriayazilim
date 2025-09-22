@@ -4,8 +4,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { navigationItems } from '@/app/data/navigation';
 
-import {GlassCard} from '@developer-hub/liquid-glass'
-
 interface HeaderWhiteProps {
   setShowWhiteHeader: React.Dispatch<React.SetStateAction<boolean>>;
 }
