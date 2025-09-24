@@ -19,7 +19,7 @@ interface Blog {
   updatedAt: string;
 }
 
-// Blog verilerini çeken fonksiyon - Direkt database'den
+// Blog verilerini çeken fonksiyon - API yerine direkt database
 async function getBlog(slug: string): Promise<Blog | null> {
   try {
     const { PrismaClient } = await import('@prisma/client');
@@ -33,7 +33,6 @@ async function getBlog(slug: string): Promise<Blog | null> {
     
     if (!blog) return null;
     
-    // Type conversion
     return {
       ...blog,
       paragraphs: blog.paragraphs as Paragraph[] | undefined,
@@ -42,98 +41,107 @@ async function getBlog(slug: string): Promise<Blog | null> {
     };
   } catch (error) {
     console.error('Blog fetch hatası:', error);
+    // Hata durumunda null döndür, 500 hatası vermesin
     return null;
   }
 }
 
 // Dynamic metadata oluşturma
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const blog = await getBlog(params.slug);
-  
-  if (!blog) {
-    return {
-      title: 'Blog Bulunamadı | Moria Yazılım',
-      description: 'Aradığınız blog bulunamadı.',
-    };
-  }
+  try {
+    const blog = await getBlog(params.slug);
+    
+    if (!blog) {
+      return {
+        title: 'Blog Bulunamadı | Moria Yazılım',
+        description: 'Aradığınız blog bulunamadı.',
+      };
+    }
 
-  const blogUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.moriayazilim.com'}/blog/${blog.id}`;
-  
-  // Görsel URL'sini tam URL yap
-  const imageUrl = blog.image.startsWith('http') 
-    ? blog.image 
-    : `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.moriayazilim.com'}${blog.image}`;
-  
-  return {
-    title: `${blog.title} | Moria Yazılım`,
-    description: blog.desc,
-    keywords: ['blog', 'yazılım', 'web tasarım', 'moria yazılım', blog.title],
-    authors: [{ name: 'Moria Yazılım' }],
-    creator: 'Moria Yazılım',
-    publisher: 'Moria Yazılım',
+    const blogUrl = `https://www.moriayazilim.com/blog/${blog.id}`;
     
-    // Open Graph
-    openGraph: {
-      title: blog.title,
+    // Görsel URL'sini tam URL yap
+    const imageUrl = blog.image.startsWith('http') 
+      ? blog.image 
+      : `https://www.moriayazilim.com${blog.image}`;
+    
+    return {
+      title: `${blog.title} | Moria Yazılım`,
       description: blog.desc,
-      url: blogUrl,
-      siteName: 'Moria Yazılım',
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        },
-      ],
-      locale: 'tr_TR',
-      type: 'article',
-      publishedTime: blog.createdAt,
-      modifiedTime: blog.updatedAt,
-      section: 'Technology',
-      tags: ['yazılım', 'web tasarım', 'teknoloji'],
-    },
-    
-    // Twitter Card
-    twitter: {
-      card: 'summary_large_image',
-      title: blog.title,
-      description: blog.desc,
-      images: [imageUrl],
-      creator: '@moriayazilim', // Twitter handle'ınızı buraya ekleyin
-      site: '@moriayazilim',
-    },
-    
-    // WhatsApp özel meta etiketleri
-    other: {
-      'whatsapp:title': blog.title,
-      'whatsapp:description': blog.desc,
-      'whatsapp:image': imageUrl,
-      'whatsapp:url': blogUrl,
-    },
-    
-    // Canonical URL
-    alternates: {
-      canonical: blogUrl,
-    },
-    
-    // Robots
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
+      keywords: ['blog', 'yazılım', 'web tasarım', 'moria yazılım', blog.title],
+      authors: [{ name: 'Moria Yazılım' }],
+      creator: 'Moria Yazılım',
+      publisher: 'Moria Yazılım',
+      
+      // Open Graph
+      openGraph: {
+        title: blog.title,
+        description: blog.desc,
+        url: blogUrl,
+        siteName: 'Moria Yazılım',
+        images: [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: blog.title,
+          },
+        ],
+        locale: 'tr_TR',
+        type: 'article',
+        publishedTime: blog.createdAt,
+        modifiedTime: blog.updatedAt,
+        section: 'Technology',
+        tags: ['yazılım', 'web tasarım', 'teknoloji'],
+      },
+      
+      // Twitter Card
+      twitter: {
+        card: 'summary_large_image',
+        title: blog.title,
+        description: blog.desc,
+        images: [imageUrl],
+        creator: '@moriayazilim',
+        site: '@moriayazilim',
+      },
+      
+      // WhatsApp özel meta etiketleri
+      other: {
+        'whatsapp:title': blog.title,
+        'whatsapp:description': blog.desc,
+        'whatsapp:image': imageUrl,
+        'whatsapp:url': blogUrl,
+      },
+      
+      // Canonical URL
+      alternates: {
+        canonical: blogUrl,
+      },
+      
+      // Robots
+      robots: {
         index: true,
         follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
       },
-    },
-  };
+    };
+  } catch (error) {
+    console.error('Metadata generation hatası:', error);
+    // Hata durumunda fallback metadata
+    return {
+      title: 'Blog | Moria Yazılım',
+      description: 'Moria Yazılım blog yazıları',
+    };
+  }
 }
 
 export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
   const blog = await getBlog(params.slug);
-
   return <BlogDetailClient slug={params.slug} initialBlog={blog} />;
 } 
