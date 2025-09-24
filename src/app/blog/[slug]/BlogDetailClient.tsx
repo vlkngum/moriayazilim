@@ -208,7 +208,7 @@ export default function BlogDetailClient({ slug, initialBlog }: BlogDetailClient
       {/* Sosyal Medya Paylaşım Butonları */}
       <div className="mt-16 pt-8 border-t border-gray-200">
         <h3 className="text-lg font-semibold text-gray-800 mb-4">Bu yazıyı paylaş:</h3>
-        <div className="flex gap-4">
+        <div className="md:flex gap-4 md:flex-row grid grid-cols-2">
           {/* WhatsApp Paylaşım */}
           <a
             href={`https://wa.me/?text=${encodeURIComponent(`${blog.title} - ${blog.desc} ${window.location.href}`)}`}
