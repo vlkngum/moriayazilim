@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "Moria Yazılım",
     images: [
       {
-        url: "/main.jpg",
+        url: "/moria_blue.jpg",
         width: 1200,
         height: 630,
         alt: "Moria Yazılım - Web Tasarım ve Yazılım Geliştirme",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Moria Yazılım",
     description: "Profesyonel web tasarım, yazılım geliştirme, e-ticaret çözümleri, SEO hizmetleri ve dijital pazarlama alanlarında yenilikçi çözümler sunan web ajansı.",
-    images: ["/main.jpg"],
+    images: ["/moria_blue.jpg"],
     creator: "@moriayazilim",
     site: "@moriayazilim",
   },
