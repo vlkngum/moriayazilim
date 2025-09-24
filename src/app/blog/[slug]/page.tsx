@@ -8,12 +8,6 @@ interface Paragraph {
   image?: string;
 }
 
-interface Category {
-  id: string;
-  name: string;
-  desc?: string;
-}
-
 interface Blog {
   id: string;
   title: string;
