@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Moria Yazılım",
   description: "Moria Yazılım, profesyonel web tasarım, yazılım geliştirme, e-ticaret çözümleri, SEO hizmetleri ve dijital pazarlama alanlarında yenilikçi çözümler sunan web ajansı.",
-  icons: "/favicon.ico",
+  icons: "/moria_blue.jpg",
   keywords: ["web tasarım", "yazılım geliştirme", "e-ticaret", "SEO", "dijital pazarlama", "web ajansı"],
   authors: [{ name: "Moria Yazılım" }],
   creator: "Moria Yazılım",
