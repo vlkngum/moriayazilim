@@ -19,19 +19,27 @@ interface Blog {
   updatedAt: string;
 }
 
-// Blog verilerini çeken fonksiyon
+// Blog verilerini çeken fonksiyon - Direkt database'den
 async function getBlog(slug: string): Promise<Blog | null> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/get-blog`, {
-      cache: 'no-store' // Her seferinde fresh data almak için
+    const { PrismaClient } = await import('@prisma/client');
+    const prisma = new PrismaClient();
+    
+    const blog = await prisma.blog.findUnique({
+      where: { id: slug }
     });
     
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
+    await prisma.$disconnect();
     
-    const blogs = await res.json();
-    return blogs.find((b: Blog) => b.id === slug) || null;
+    if (!blog) return null;
+    
+    // Type conversion
+    return {
+      ...blog,
+      paragraphs: blog.paragraphs as Paragraph[] | undefined,
+      createdAt: blog.createdAt.toISOString(),
+      updatedAt: blog.updatedAt.toISOString(),
+    };
   } catch (error) {
     console.error('Blog fetch hatası:', error);
     return null;
@@ -51,6 +59,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   const blogUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.moriayazilim.com'}/blog/${blog.id}`;
   
+  // Görsel URL'sini tam URL yap
+  const imageUrl = blog.image.startsWith('http') 
+    ? blog.image 
+    : `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.moriayazilim.com'}${blog.image}`;
+  
   return {
     title: `${blog.title} | Moria Yazılım`,
     description: blog.desc,
@@ -67,7 +80,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       siteName: 'Moria Yazılım',
       images: [
         {
-          url: blog.image,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: blog.title,
@@ -86,7 +99,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       card: 'summary_large_image',
       title: blog.title,
       description: blog.desc,
-      images: [blog.image],
+      images: [imageUrl],
       creator: '@moriayazilim', // Twitter handle'ınızı buraya ekleyin
       site: '@moriayazilim',
     },
@@ -95,7 +108,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     other: {
       'whatsapp:title': blog.title,
       'whatsapp:description': blog.desc,
-      'whatsapp:image': blog.image,
+      'whatsapp:image': imageUrl,
       'whatsapp:url': blogUrl,
     },
     
