@@ -10,7 +10,59 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Moria Yazılım",
   description: "Moria Yazılım, profesyonel web tasarım, yazılım geliştirme, e-ticaret çözümleri, SEO hizmetleri ve dijital pazarlama alanlarında yenilikçi çözümler sunan web ajansı.",
-  icons: "/favicon.ico",  
+  icons: "/favicon.ico",
+  keywords: ["web tasarım", "yazılım geliştirme", "e-ticaret", "SEO", "dijital pazarlama", "web ajansı"],
+  authors: [{ name: "Moria Yazılım" }],
+  creator: "Moria Yazılım",
+  publisher: "Moria Yazılım",
+  
+  // Open Graph
+  openGraph: {
+    title: "Moria Yazılım",
+    description: "Profesyonel web tasarım, yazılım geliştirme, e-ticaret çözümleri, SEO hizmetleri ve dijital pazarlama alanlarında yenilikçi çözümler sunan web ajansı.",
+    url: "https://www.moriayazilim.com",
+    siteName: "Moria Yazılım",
+    images: [
+      {
+        url: "/main.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Moria Yazılım - Web Tasarım ve Yazılım Geliştirme",
+      },
+    ],
+    locale: "tr_TR",
+    type: "website",
+  },
+  
+  // Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "Moria Yazılım",
+    description: "Profesyonel web tasarım, yazılım geliştirme, e-ticaret çözümleri, SEO hizmetleri ve dijital pazarlama alanlarında yenilikçi çözümler sunan web ajansı.",
+    images: ["/main.jpg"],
+    creator: "@moriayazilim",
+    site: "@moriayazilim",
+  },
+  
+  // Robots
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  
+  // Viewport
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 
