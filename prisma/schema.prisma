@@ -5,6 +5,8 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  // Prisma Accelerate ve migrate deploy için doğrudan Postgres URL'si
+  directUrl = env("DIRECT_URL")
 }
 
 model Category {

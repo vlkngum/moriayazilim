@@ -34,3 +34,36 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Prisma & Database (Production)
+
+### Environment Variables
+
+Add these in Vercel Project → Settings → Environment Variables:
+
+- `DATABASE_URL` – Prisma-compatible connection string (e.g. `postgresql://USER:PASSWORD@HOST:5432/DB?sslmode=require`).
+- Optionally `DIRECT_URL` – direct Postgres URL for migrations when using Prisma Accelerate.
+
+For local development, create `.env`:
+
+```
+DATABASE_URL="postgresql://postgres:password@localhost:5432/moria?schema=public"
+```
+
+### Prisma Migrate (Production)
+
+Run once from your machine with production DB credentials:
+
+```powershell
+$env:DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/DB?sslmode=require"
+npx prisma migrate deploy
+npx prisma generate
+```
+
+### Using Prisma in code
+
+Use the singleton in `src/lib/prisma.ts` and ensure Node.js runtime in route handlers:
+
+```ts
+export const runtime = 'nodejs';
+```
