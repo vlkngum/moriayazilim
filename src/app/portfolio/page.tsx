@@ -34,7 +34,7 @@ const portfolioData: Portfolio[] = [
     name: "Moria Entegrasyon Customer",
     description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren siteler için kurumsal web tasarımı.",
     category: "Demo Projeler",
-    href: "https://customer-entegrasyon-moria-demo-inn.vercel.app/login"
+    href: "https://cmapps-customer.vercel.app/"
   },
   {
     id: "3",
