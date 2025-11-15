@@ -40,7 +40,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
     title: "Moria Yazılım",
@@ -51,7 +50,6 @@ export const metadata: Metadata = {
     site: "@moriayazilim",
   },
 
-  // Robots
   robots: {
     index: true,
     follow: true,
@@ -64,7 +62,6 @@ export const metadata: Metadata = {
     },
   },
 
-  // Viewport
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -80,14 +77,29 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        {/* Google AdSense Script */}
+        {/* Google AdSense */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3295280319586761"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-DZS3GEVCY3"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DZS3GEVCY3');
+          `}
+        </Script>
       </head>
+
       <body className={`${poppins.className} antialiased bg-black text-white`}>
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
