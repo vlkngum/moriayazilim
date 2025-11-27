@@ -22,6 +22,14 @@ interface Category {
 const portfolioData: Portfolio[] = [
   {
     id: "1",
+    image: "/logo.png",
+    name: "Yıltur Turizm",
+    description: "Yıltur Turizm için kurumsal web sitesi tasarımı gerçekleştirdik. Mobil uyumlu, hızlı ve kullanıcı dostu bir altyapı ile firmanın hizmetlerini ve iletişim bilgilerini ziyaretçilere kolayca ulaştıracak şekilde tasarlandı.",
+    category: "Turizm",
+    href: "https://yilturturizm.com/"
+  },
+  {
+    id: "2",
     image: "/mockup.jpg",
     name: "Moria Entegrasyon",
     description: "Trendyol, Hepsiburada, Amazon ve n11 gibi pazaryerlerindeki tüm e-ticaret operasyonlarınızı tek panelden yönetin. Kod bilgisine gerek kalmadan dakikalar içinde kurulum yapabilir, stok ve fiyat güncellemelerini anında senkronize edebilir, sipariş ve faturalandırma süreçlerinizi zahmetsizce kontrol altına alabilirsiniz.",
@@ -29,7 +37,7 @@ const portfolioData: Portfolio[] = [
     href: "https://entegrasyon-moria-demo.vercel.app/"
   },
   {
-    id: "2",
+    id: "3",
     image: "/mockup.jpg",
     name: "Moria Entegrasyon Customer",
     description: "Endüstriyel otomasyon, elektrik taahhüt ve sistem entegrasyonu alanında hizmet veren siteler için kurumsal web tasarımı.",
@@ -37,7 +45,7 @@ const portfolioData: Portfolio[] = [
     href: "https://cmapps-customer.vercel.app/"
   },
   {
-    id: "3",
+    id: "4",
     image: "/logo.png",
     name: "Kuaför Demo",
     description: "Modern ve kullanıcı dostu bir kuaför web sitesi tasarım konsepti. Renk paleti tipografi ve düzen tamamen kullanıcı deneyimini ön planda tutacak şekilde oluşturuldu. Bu proje, Moria Yazılım’ın sektöre özel web tasarım yetkinliklerini sergilemek amacıyla hazırlanmış bir demo çalışmadır.",
@@ -45,12 +53,12 @@ const portfolioData: Portfolio[] = [
     href: "https://kuafor-moria-demo.vercel.app/"
   },
   {
-    id: "4",
+    id: "5",
     image: "/logo.png",
-    name: "Yıltur Turizm",
-    description: "Yıltur Turizm için kurumsal web sitesi tasarımı gerçekleştirdik. Mobil uyumlu, hızlı ve kullanıcı dostu bir altyapı ile firmanın hizmetlerini ve iletişim bilgilerini ziyaretçilere kolayca ulaştıracak şekilde tasarlandı.",
-    category: "Turizm",
-    href: "https://yilturturizm.com/"
+    name: "Gayrimenkul Demo",
+    description: "Modern ve kullanıcı dostu bir gayrimenkul web sitesi tasarım konsepti. Renk paleti tipografi ve düzen tamamen kullanıcı deneyimini ön planda tutacak şekilde oluşturuldu. Bu proje, Moria Yazılım’ın sektöre özel web tasarım yetkinliklerini sergilemek amacıyla hazırlanmış bir demo çalışmadır.",
+    category: "Demo Projeler",
+    href: "https://gayrimenkul-moria-demo.vercel.app/"
   }
 ];
 
