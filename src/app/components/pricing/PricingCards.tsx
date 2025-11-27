@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 // Define the Plan type
 interface Plan {
   name: string;
-  price: string;
+  //price: string;
   description: string;
   recommended: boolean;
   features: string[];
@@ -20,7 +20,6 @@ export default function PricingCards() {
   const plans: Plan[] = [
     {
       name: "Basit Plan",
-      price: "5000 TL",
       description: "Düşük bütçe için önerilen paketimizdir.",
       recommended: false,
       features: [
@@ -39,7 +38,6 @@ export default function PricingCards() {
     },
     {
       name: "Orta Plan",
-      price: "16000 TL",
       description: "Orta ölçekli işletmeler için ideal paket.",
       recommended: true,
       features: [
@@ -58,7 +56,6 @@ export default function PricingCards() {
     },
     {
       name: "Yüksek Plan",
-      price: "25000 TL",
       description: "Büyük ölçekli projeler için kapsamlı çözüm.",
       recommended: false,
       features: [
@@ -148,7 +145,7 @@ export default function PricingCards() {
               <p className="text-gray-600 mb-4">
                 {plan.description}
               </p>
-              <motion.div 
+              {/* <motion.div 
                 initial={{ scale: 0.8 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.2 + 0.2 }}
@@ -157,7 +154,7 @@ export default function PricingCards() {
               >
                 {plan.price}
               </motion.div>
-              <p className="text-gray-500 text-sm">Tek seferlik ödeme</p>
+              <p className="text-gray-500 text-sm">Tek seferlik ödeme</p> */}
             </motion.div>
 
             <motion.button 
