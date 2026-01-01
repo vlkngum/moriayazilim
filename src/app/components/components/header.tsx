@@ -75,7 +75,12 @@ export default function Header() {
           
           <a
             href="mailto:iletisim@moriayazilim.com"
-            className={`flex items-center space-x-1 text-xs ${pathname=="/" ? "text-black/80" : "text-white" } hover:underline`}
+            onClick={(e) => {
+              e.preventDefault();
+              console.log('Mailto clicked - opening email client');
+              window.location.href = 'mailto:iletisim@moriayazilim.com';
+            }}
+            className={`flex items-center space-x-1 text-xs ${pathname=="/" ? "text-black/80" : "text-white" } hover:underline cursor-pointer`}
           >
             <FaEnvelope />
             <span>{contactInfo.email}</span>
@@ -187,10 +192,18 @@ export default function Header() {
             <div className="flex flex-col gap-2 px-6 pb-4 mb-11 mt-4">
               <div className="flex flex-col items-start text-base gap-4">
                 <SocialMediaIcons className="text-xl" iconSize="text-xl" exclude={['FaWhatsapp','MdEmail']} />
-                <a href="mailto:iletisim@moriayazilim.com" className="flex items-center gap-2 text-base">
+                <a 
+                  href="mailto:iletisim@moriayazilim.com"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log('Mailto clicked (mobile) - opening email client');
+                    window.location.href = 'mailto:iletisim@moriayazilim.com';
+                  }}
+                  className="flex items-center gap-2 text-base cursor-pointer"
+                >
                   <FaEnvelope />
-                <span>{contactInfo.email}</span>
-              </a>
+                  <span>{contactInfo.email}</span>
+                </a>
               </div>
              
             </div>

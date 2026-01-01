@@ -26,9 +26,9 @@ export const navigationItems: NavigationItem[] = [
   //   description: "Bloglarımız"
   // },
   {
-    name: "Fiyatlandırma",
-    path: "/pricing",
-    description: "Paket fiyatları"
+    name: "Paketlerimiz",
+    path: "/our-packages",
+    description: "Paketlerimiz"
   },
   {
     name: "İletişim",

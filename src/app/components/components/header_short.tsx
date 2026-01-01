@@ -12,7 +12,7 @@ export default function Header_Short() {
     "/contact": "İletişim",
     "/portfolio": "Portfolyomuz",
     // "/blog": "Blog",
-    "/pricing": "Fiyatlandırma",
+    "/pricing": "Paketlerimiz",
   };
 
       const isBlogSlug = pathname.startsWith('/blog/') && pathname !== '/blogs';

@@ -60,8 +60,11 @@ export default function TeamSection() {
             <a
             key={index}
             href={member.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={(e) => {
+              e.preventDefault();
+              console.log('Team member mailto clicked - opening email client:', member.href);
+              window.location.href = member.href;
+            }}
             className="block w-[95%] md:w-[calc(50%-1rem)] lg:w-[320px]"
           >
               <motion.div

@@ -18,7 +18,7 @@ export default function PricingHeader() {
         viewport={{ once: true }}
         className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
       >
-        Fiyatlandırma
+        Paketlerimiz
       </motion.h1>
       <motion.p 
         initial={{ opacity: 0, y: 20 }}

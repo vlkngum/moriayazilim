@@ -235,14 +235,28 @@ export default function Contact() {
                       <div>
                         <p className="font-semibold text-gray-900">{contact.title}</p>
                         {contact.href ? (
-                          <Link 
-                            href={contact.href} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="text-blue-600 hover:text-blue-800 transition-colors md:text-base text-xs"
-                          >
-                            {contact.value}
-                          </Link>
+                          contact.href.startsWith('mailto:') ? (
+                            <a 
+                              href={contact.href}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                console.log('Mailto clicked (contact page) - opening email client:', contact.href);
+                                window.location.href = contact.href;
+                              }}
+                              className="text-blue-600 hover:text-blue-800 transition-colors md:text-base text-xs cursor-pointer"
+                            >
+                              {contact.value}
+                            </a>
+                          ) : (
+                            <Link 
+                              href={contact.href} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="text-blue-600 hover:text-blue-800 transition-colors md:text-base text-xs"
+                            >
+                              {contact.value}
+                            </Link>
+                          )
                         ) : (
                           <p className="text-gray-600 md:text-md text-xs">{contact.value}</p>
                         )}
