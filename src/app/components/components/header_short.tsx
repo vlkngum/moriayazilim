@@ -11,7 +11,7 @@ export default function Header_Short() {
     "/about": "Hakkımızda",
     "/contact": "İletişim",
     "/portfolio": "Portfolyomuz",
-    // "/blog": "Blog",
+    "/our-packages": "Paketlerimiz",
     "/pricing": "Paketlerimiz",
   };
 
